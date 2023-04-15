@@ -8,11 +8,11 @@ window.onscroll = function()
 	var currentScrollPos = window.pageYOffset;
 	if (prevScrollpos > currentScrollPos) 
 	{
-	document.getElementById("navigation").style.top = "0";
+		document.getElementById("navigation").style.top = "0";
 	} 
 	else 
 	{
-	document.getElementById("navigation").style.top = "-50px";
+		document.getElementById("navigation").style.top = "-50px";
 	}
 	prevScrollpos = currentScrollPos;
 }
