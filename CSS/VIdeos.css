@@ -1,0 +1,253 @@
+body
+{
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+*
+{
+    box-sizing: border-box;
+}
+.text
+{
+	font-size: 12px;
+	color: white;
+	padding: 4px 6px;
+	width: 100%;
+	text-align: center;
+	bottom: 8px;
+	font-family: Lucida Sans;
+	background-color: #00000099;
+	border-radius: 5px;
+}
+.background-image
+{
+    width: 2080px;
+    height: 1177px;
+    min-width: 480px;
+    min-height: 640px;
+    position: fixed;
+
+    background-image: url("../Images/timo-volz-DGsqL2j028E-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0.4);
+}
+.splash-screen
+{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: black;
+    z-index: 200;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    line-height: 90vh;
+}
+.splash-screen.display-none
+{
+    position: fixed;
+    width: 1880px;
+    height: 977px;
+    top: 0;
+    left: 0;
+    background: black;
+    opacity: 0;
+    color: white;
+    z-index: -10;
+    font-size: 18px;
+    transition: 0.5s;
+}
+@keyframes fadeIn
+{
+    to
+    {
+        opacity: 1;
+    }
+}
+.fadeIn
+{
+    opacity: 0;
+    z-index: -11;
+    animation: fadeIn 1s ease-in forwards;
+}
+.video-container
+{
+    position: fixed;
+    display: block;
+    padding: 20px;
+    overflow: auto;
+    left: 20px;
+    top: 80px;
+    height: 700px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+.video-modal
+{
+    position: fixed;
+    display: block;
+    padding: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.videos
+{
+    position: relative;
+    left: 0px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 450px;
+    height: 115px;
+    transition: 0.5s;
+    z-index: 1;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background-position: center;
+    background-size: cover;
+}
+.videos:hover
+{
+    color: black;
+    cursor: pointer;
+}
+.vid1
+{
+    background-image: url("../Images/Fuji.jpg");
+}
+.vid2
+{
+    background-image: url("../Images/Shrines.jpg");
+}
+.vid3
+{
+    background-image: url("../Images/Transportation.jpg");
+}
+.vid4
+{
+    background-image: url("../Images/Shotengai.jpg");
+}
+.vid5
+{
+    background-image: url("../Images/Fireworks.jpg");
+}
+.vid6
+{
+    background-image: url("../Images/Festivals.jpg");
+}
+.video-player
+{
+    display: block;
+    position: fixed;
+    left: 600px;
+    top: 250px;
+    width: 700px;
+    height: 400px;
+    background-color: rgba(17, 17, 17, 1);
+    z-index: 2;
+}
+.loader 
+{
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #031d2e; 
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    left: 43%;
+    top: 43%;
+}
+
+@keyframes spin 
+{
+    0% 
+    { 
+        transform: rotate(0deg); 
+    }
+    100% 
+    { 
+        transform: rotate(360deg); 
+    }
+}
+
+/* The close button (x) */ 
+.close
+{
+	position: absolute;
+	right: 5px;
+	top: 0;
+	color: #ffffff;
+	font-size: 25px;
+	font-weight: bold;
+    z-index: 1;
+}
+.close:hover,
+.close:focus
+{
+	color: red;
+	cursor: pointer;
+}
+.vid-button
+{
+    padding: 13px;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    margin: 2px;
+    border-radius: 5px;
+    border: 2px solid black;
+    top: 30px;
+    left: 840px;
+    cursor: pointer;
+}
+.vid-button:hover
+{
+    border: 2px solid white;
+    color: white;
+}
+.c
+{
+    color: transparent;
+    transition-duration: 0.5s;
+}
+.c:hover
+{
+    color: black;
+}
+/* width */
+::-webkit-scrollbar 
+{
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track 
+{
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb 
+{
+    background: #5c5c5e;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover 
+{
+    background: rgb(0, 0, 0);
+}

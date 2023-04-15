@@ -1,0 +1,33 @@
+<?php session_start();?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
+<link rel = "stylesheet" type = "text/css" href = "Login.css" ></link> 
+<body>
+
+<div class = "container">
+	<div class = "bg-img">
+		<div class = "modal1">
+			<form class = "modal-content animate" method = "post" action = "_login.php">
+				
+				<div class = "imgcontainer">
+					<img src = "Images\\Simple.gif" alt = "Avatar" class = "avatar">
+				</div>
+				
+				<div class = "modal-container">
+					<label for = "uname"><b>Username</b></label>
+					<input type = "text" placeholder = "Enter Username" name = "name" required>
+				
+					<label for = "psw"><b>Password</b></label>
+					<input type = "password" placeholder = "Enter Password" name = "psw" required>
+					<button class = "button3" type = "submit">Submit</button>
+				</div>
+			</form>	
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
