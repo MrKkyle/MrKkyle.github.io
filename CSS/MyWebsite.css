@@ -79,35 +79,8 @@ h1
 	left: 0px;
 	position: absolute;
 }
-										/* Buttons */ 	
-.button1 
-{
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 16px;
-	cursor: pointer;
-	width: 150px;
-	height: 50px;
-	position: relative;
-	background-image: url("../Images/307582.jpg");
-	background-size: cover;
-	border: 2px solid #000000;
-	border-radius: 4px;
-	margin: 4px;
-	transition-duration: 0.4s;
-	color: black;
+										/* Buttons */ 									
 
-}									
-									
-
-.button2:hover
-{
-	color: white;
-	border: 2px solid white;
-	background-image: url("../Images/307582.jpg");
-	background-position: center;
-}
 .button3 
 {
 	padding: 0px;
@@ -185,6 +158,7 @@ input[type = text], input[type = password]
 	border: 1px solid #ccc;
 	display: inline-block;
 	box-sizing: border-box;
+	border-radius: 10px;
 } 
 input[type = email]
 {
@@ -194,6 +168,7 @@ input[type = email]
 	border: 1px solid #ccc;
 	display: inline-block;
 	box-sizing: border-box;
+	border-radius: 10px;
 }
 input[type = comment]
 {
@@ -204,6 +179,7 @@ input[type = comment]
 	display: inline-block;
 	box-sizing: border-box;
 	word-break: break-all;
+	border-radius: 10px;
 }
 							/* Extra styles for the cancel button */
 .cancelbtn
@@ -250,18 +226,22 @@ span.psw
 								/* Modal Content/box */
 .modal-content
 {
-	background-color: #fefefe;
+	background-color: rgb(245, 245, 245);
 	margin: 5% auto 15% auto;	/* 5% from the top, 15% from the bottom and centered */
-	border: 1px solid #888;
-	width: 560px;
-	height: 720px;;
+    width: 600px;
+    height: 700px;
 	position: absolute;
 	top: 2%;
-	left: 35%;
 	z-index: 2;
 	left: 50%;
     transform: translate(-50%, 0%); 
-
+	border-radius: 10px;
+	opacity: 0.7;
+	text-align: center;
+}
+.modal-content:hover
+{
+	opacity: 0.85;
 }
 /* The close button (x) */ 
 .close
@@ -358,8 +338,8 @@ span.psw
 {
 	display: block;
 	position: absolute;
-	width: 1100px;
-	height: 700px;
+	width: 90%;
+	height: 48%;
 	opacity: 0.9;
 	background-color: rgb(0,0,0);
 	background-color: rgba(0,0,0,0.4);
@@ -608,7 +588,6 @@ span.psw
 	display: block;
 	padding: 12px;
 	transition-duration: 0.5s;
-	text-shadow: white;
 	border-left: 1px;
 	border: 1px;
 	text-decoration: none;
@@ -631,7 +610,8 @@ a:visited
     position: absolute;
     height: 1400px;
     width: 1200px;
-    left: 17%;
+    left: 52%;
+    transform: translate(-49%, 0);
     top: 8%;
     border-radius: 5px;
 }
@@ -640,8 +620,8 @@ a:visited
 {
 	position: absolute;
 	bottom: 25%;
-    width: 1100px;
-    height: 300px;
+	width: 90%;
+    height: 20%;
     border-radius: 5px;
 	background-color: rgba(0,0,0,0.4);
     border: 2px solid black; 
@@ -651,8 +631,8 @@ a:visited
 {
 	position: absolute;
 	bottom: 3%;
-    width: 1100px;
-    height: 250px;
+    width: 90%;
+    height: 20%;
     border-radius: 5px;
 	background-color: rgba(0,0,0,0.4);
     border: 2px solid black; 
