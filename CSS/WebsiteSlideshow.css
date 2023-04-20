@@ -30,44 +30,6 @@ body
 	text-align: center;
 	bottom: 8px;
 }
-.close
-{
-	position: absolute;
-	right: 25px;
-	top: 0;
-	color: #ffffff;
-	font-size: 25px;
-	font-weight: bold;
-}
-.close:hover, .close:focus
-{
-	color: red;
-	cursor: pointer;
-}
-.container
-{
-    width: 600px;
-    height: 250px;
-    position: absolute;
-    margin: 2px;
-    color: white;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    background-color: black;
-    display: none;
-    padding: 8px 12px;
-    opacity: 0.8;
-    border-radius: 10px;
-	transition-duration: 0.6s;
-	background-size: cover;
-	background-position: center;
-}
-
-.container:hover
-{
-	opacity: 1;
-}
 
 .container-text 
 {
@@ -235,39 +197,40 @@ body
 	left: 1%;
 	font-size: 18px;
 	font-family: Calibri;
+	opacity: 0.9;
 }
 .flip1 
 {
-	border-top: 2px solid #f1f1f1;
+	border-top: 2px solid #ff0000;
 	border-right: 2px solid #054b1a;
 	border-left: 2px solid #e91c1c;
-	border-bottom: 2px solid #2477f3;
+	border-bottom: 2px solid #054b1a;
 }
 .flip2
 {
 	border-top: 2px solid #ff9100;
 	border-right: 2px solid #02df44;
-	border-left: 2px solid #ffffff;
-	border-bottom: 2px solid #0066ff;
+	border-left: 2px solid #ff9100;
+	border-bottom: 2px solid #02df44;
 }
 .flip3 
 {
-	border-top: 2px solid #ffecb8;
+	border-top: 2px solid #00ccff;
 	border-right: 2px solid #064218;
 	border-left: 2px solid #00ccff;
-	border-bottom: 2px solid #0066ff;
+	border-bottom: 2px solid #064218;
 }
 .flip4
 {
-	border-top: 2px solid #f1f1f1;
+	border-top: 2px solid #033886;
 	border-right: 2px solid #054b1a;
-	border-left: 2px solid #b49191;
-	border-bottom: 2px solid #033886;
+	border-left: 2px solid #033886;
+	border-bottom: 2px solid #054b1a;
 }
 .flip5
 {
-	border-top: 2px solid #f1f1f1;
-	border-right: 2px solid #00b637;
+	border-top: 2px solid #cc00ff;
+	border-right: 2px solid #8400ff;
 	border-left: 2px solid #cc00ff;
 	border-bottom: 2px solid #8400ff;
 }
@@ -275,15 +238,15 @@ body
 {
 	border-top: 2px solid #ff9100;
 	border-right: 2px solid #02ac35;
-	border-left: 2px solid #e90000;
-	border-bottom: 2px solid #ffffff;
+	border-left: 2px solid #ff9100;
+	border-bottom: 2px solid #02ac35;
 }
 .flip7
 {
 	border-top: 2px solid #ff9100;
 	border-right: 2px solid #ee338a;
-	border-left: 2px solid #4e3807;
-	border-bottom: 2px solid #ffa600;
+	border-left: 2px solid #ff9100;
+	border-bottom: 2px solid #ee338a;
 }
 .flip-box-inner 
 {
@@ -317,6 +280,7 @@ body
 	border-radius: 10px;
 	padding: 20px;
 	font-size: 25px;
+	line-height: 200px;
 }
 
 .flip-box-back 
@@ -326,4 +290,5 @@ body
 	transform: rotateX(180deg);
 	border-radius: 10px;
 	padding: 20px;
+	opacity: 0.9;
 }

@@ -26,133 +26,35 @@ body
     position: fixed;
 }
 
-.container
-{
-    position: absolute;
-    height: 1600px;
-    width: 1500px;
-    left: 17%;
-    top: 3%;
-    border-radius: 5px;
-}
-
-.mySlides
-{
-    display: none;
-}
-
 .container-projects
 {
     position: absolute;
     background-color: black;
     top: 5%;
-    width: 1200px;
-    height: 1100px;
+    width: 60%;
+    height: 90%;
     background-color: rgb(0,0,0);
 	background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 5px;  
-    border: 2px solid black;  
-}
-
-.prev, .next 
-{
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-.next
-{
-    right: 0;
-    border-radius: 5px;
-}
-
-.prev:hover, .next:hover
-{
-    background-color: rgba(0,0,0,0.8);
-}
-
-.fade
-{
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade 
-{
-    from 
-    {
-        opacity: 0.4;
-    }
-    to 
-    {
-        opacity: 1;
-    }
-}
-
-.move
-{
-    animation-name: move;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-    /* Retains the animation */
-    animation-fill-mode: forwards;
-}
-
-@keyframes move 
-{
-    from 
-    {
-       left: 350px; 
-    }
-    to
-    {
-        left: 100px;
-    }
-
-}
-@media only screen and (max-width: 300px)
-{
-    .prev, .next, .text
-    {
-        font-size: 11px;
-    }
-}
-
-.container-Interests
-{
-    position: absolute;
-    background-color: black;
-    bottom: 3%;
-    width: 1200px;
-    height: 300px;
-    border-radius: 5px;
-    background-color: rgb(0,0,0);
-	background-color: rgba(0,0,0,0.6);
-    border: 2px solid black;  
-
+    border-radius: 10px;  
+    border: 2px solid black;
+    left: 50%;
+    transform: translate(-50%, 0);  
+    overflow: auto;
 }
 .interests
 {
-    width: 220px;
-    height: 180px;
+    width: 80%;
+    height: 15%;
     position: absolute;
-    top: 20%;
-    border-radius: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left;
     transition: 0.5s;
     border: 1px solid black;
+    cursor: pointer;
 }
 .interests:hover
 {
@@ -161,93 +63,33 @@ body
 }
 .kanagawa-park
 {
-    background-image: url("../Images/Interests\\kanagawa-park.jpg");
-    left: 10px;
+    background-image: url("../Images/Interests/kanagawa-park.jpg");
+    top: 5%;
 }
 .osaka-castle
 {
-    background-image: url("../Images/Interests\\osaka-castle.jpg");
-    left: 240px;
+    background-image: url("../Images/Interests/osaka-castle.jpg");
+    top: 22%;
 }
 .Shirakawa-go-Village
 {
-    background-image: url("../Images/Interests\\Shirakawa-Village.jpg");
-    left: 470px;
+    background-image: url("../Images/Interests/Shirakawa-Village.jpg");
+    top: 39%;
 }
 .sapporo
 {
-    background-image: url("../Images/Interests\\sapporo.jpg");
-    left: 700px;
+    background-image: url("../Images/Interests/sapporo.jpg");
+    top: 56%;
 }
 .tokyo
 {
-    background-image: url("../Images/Interests\\tokyo.jpg");
-    left: 930px;
-}
-
-.project
+    background-image: url("../Images/Interests/tokyo.jpg");
+    top: 73%;
+}   
+.Sengen-Shrine
 {
-    position: relative;
-    width: 500px;
-    height: 300px;
-    left: 350px;
-    border-radius: 5px;
-    border: 2px solid black;
-    opacity: 1;
-    background-color: black;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-}
-.project:hover
-{
-    border: 2px solid white;
-}
-.project-1
-{
-    background-image: url("../Images/Slideshow\\89317.png"); 
-    top: 65px;
-}
-.project-2
-{
-    background-image: url("../Images/Slideshow\\peter-nguyen-OpiZAxueRUE-unsplash.jpg");
-    top: 105px;
-}
-.project-3
-{
-    background-image: url("../Images/Slideshow\\sam-lee-PBtRaGdD1IM-unsplash.jpg");
-    top: 140px;
-}
-.project-4
-{
-    background-image: url("../Images/Slideshow\\24600.jpg");
-    top: 65px;
-}
-.project-5
-{
-    background-image: url("../Images/Slideshow\\1205098.jpg");
-    top: 105px;
-}
-.project-6
-{
-    background-image: url("../Images/Slideshow\\luke-paris-z6SXax6vhm0-unsplash.jpg");
-    top: 140px;
-}
-.project-7
-{
-    background-image: url("../Images/Slideshow\\rap-dela-rea-aA4oeWs5HrY-unsplash.jpg");
-    top: 65px;
-}
-.project-8
-{
-    background-image: url("../Images/Slideshow\\zhipeng-ya-8Qj0hejwni0-unsplash.jpg");
-    top: 105px;
-}
-.project-9
-{
-    background-image: url("../Images/Slideshow\\wallpaperflare.com_wallpaper (1).jpg");
-    top: 140px;
+    background-image: url("../Images/Interests/Sengen-Shrine.jpg");
+    top: 90%;
 }
 
 .text-container
@@ -345,49 +187,4 @@ body
 ::-webkit-scrollbar-thumb:hover 
 {
     background: whitesmoke;
-}
-.modal-locations 
-{
-	display: none; 							/* Hidden by default */
-	position: fixed; 						/* Stay in place */
-	z-index: 1; 							/* Sit on top */
-	left: 0;
-	top: 0;
-	width: 100%; 							/* Full width */
-	height: 100%; 							/* Full height */
-	overflow: auto; 						/* Enable scroll if needed */
-	background-color: rgb(0,0,0); 			/* Fallback color */
-	background-color: rgba(0,0,0,0.4); 		/* Black w/ opacity */
-	padding-top: 60px;
-}
-
-.modal-content-locations
-{
-	background-color: #05202a;
-	margin: 5% auto 15% auto;	/* 5% from the top, 15% from the bottom and centered */
-	border: 2px solid #888;
-	border-radius: 5px;
-	width: 550px;
-	height: 720px;;
-	position: absolute;
-	top: 2%;
-	left: 35%;
-	opacity: 0.9;
-	overflow: auto;
-}
-.img-container-locations
-{
-	width: 100%;
-	position: relative;
-	padding: 8px 30px;
-}
-
-.text-locations
-{
-	font-size: 12px;
-	color: white;
-	position: relative;
-	padding: 4px 30px;
-	text-align: left;
-	font-family: Lucida Sans;
 }
