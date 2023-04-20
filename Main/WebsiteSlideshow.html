@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
-<link rel = "stylesheet" type = "text/css" href = "../CSS/WebsiteSlideshow.css" ></link> 
+<link rel = "stylesheet" type = "text/css" href = "../CSS/WebsiteSlideshow.css" > 
 <title>Enjoy a Slideshow!</title>
 <style>
 
@@ -14,12 +14,16 @@
 		<div class = "slideshow-container">
 
 			<div class = "mySlides fade">
-				<div class = "numbertext">1 / 3</div>
-				<img src = "../Images/samuel-berner-3Il7RsFqs9I-unsplash.jpg"></img>
+				<div class = "numbertext">1 / 7</div>
+				<div class = "img" style = "background-image: url('../Images/Slideshow/slideshow (1).jpg');"></div>
 				<div id = "c01" class = "container">
-					<div id = "id00" class = "container-text">
-						<p>	This famous Alley, also known as <b>"shotengai"</b>, is one of the 
-							many found in Tokyo.These alleys are typically in the form of a 
+					<span id = "span01" onclick = "document.getElementById('c01').style.display = 'none'" 
+						class = "close" title = "Close Modal" >&times;
+					</span>
+					<div id = "id01" class = "container-text fadeInDown">
+						<p>	
+							These Alleys, also known as <b>"shotengai"</b>, is one of the 
+							many found in Japan. These alleys are typically in the form of a 
 							local market street that is closed to car traffic. Local shotengai 
 							cater to the needs of nearby residents with a diverse mix of small 
 							specialty shops and few large retailers. In many older neighborhoods, 
@@ -35,17 +39,20 @@
 				
 			</div>
 			<div class = "mySlides fade">
-				<div class = "numbertext">2 / 3</div>
-				<img src = "../Images/793982.jpg"></img>
+				<div class = "numbertext">2 / 7</div>
+				<div class = "img" style = "background-image: url('../Images/Slideshow/slideshow (2).jpg');"></div>
 				<div id = "c02" class = "container">
-					<div id = "id01" class = "container-text">
-						<p>	Chiba is the capital and largest city of Chiba Prefecture,
-							with other major cities including Funabashi, Matsudo, Ichikawa 
-							and Kashiwa. Chiba Prefecture is located on Japan's eastern 
-							Pacific coast to the east of Tokyo, and is part of the Greater 
-							Tokyo Area, the most populous metropolitan area in the world. 
-							Chiba Prefecture largely consists of the Boso Peninsula, which 
-							encloses the eastern side of Tokyo Bay and separates it from Kanagawa Prefecture.
+					<span id = "span02" onclick = "document.getElementById('c02').style.display = 'none'" 
+						class = "close" title = "Close Modal" >&times;
+					</span>
+					<div id = "id02" class = "container-text fadeInDown">
+						<p>	
+							Bus is the main way to get around if you're in rural Japan, but even in areas fairly close to Tokyo, 
+							some buses only run 2 or 3 times per day, and not at all on weekends.
+							In areas closer to a train station, there are usually trains coming into the stations 
+							every 30 minutes at semi-rural areas.
+							In the countryside, however, the number of trains might just be 2 per day (Once in the early 
+							morning, once in the late evening).
 						</p>
 					</div>
 				</div>
@@ -56,22 +63,105 @@
 			</div>
 			
 			<div class = "mySlides fade">
-				<div class = "numbertext"> 3 / 3</div>
-				<img src = "../Images/eric-lee-W41DxGHdztQ-unsplash.jpg"></img>
+				<div class = "numbertext"> 3 / 7</div>
+				<div class = "img" style = "background-image: url('../Images/Slideshow/slideshow (3).jpg');"></div>
 				<div id = "c03" class = "container">
-					<div id = "id02" class = "container-text">
-						<p>	There is more to Japan than just the cities. Although a hard majority 
-							of the country lives in urban areas <b>and over 30% of those people are in 
-							Tokyo alone!</b>, a lot of those urban areas end up being small cities in the 
-							countryside. These are cities of 100,000 to 200,000 people, dense at the 
-							core but only several kilometers from rice farms and forested mountains. 
-							Going further out from them, you will find small towns and hamlets.
+					<span id = "span03" onclick = "document.getElementById('c03').style.display = 'none'" 
+						class = "close" title = "Close Modal" >&times;
+					</span>
+					<div id = "id03" class = "container-text fadeInDown">
+						<p>
+							
 						</p>
 					</div>
 				</div>
 				
 				<button id = "bt03" class = "button button1"
-				onclick = "document.getElementById('id02').style.display = 'none'"
+				onclick = "document.getElementById('id04').style.display = 'none'"
+				>Information</button>
+			</div>
+			<div class = "mySlides fade">
+				<div class = "numbertext"> 4 / 7</div>
+				<div class = "img" style = "background-image: url('../Images/Slideshow/slideshow (4).jpg');"></div>
+				<div id = "c04" class = "container">
+					<span id = "span04" onclick = "document.getElementById('c04').style.display = 'none'" 
+						class = "close" title = "Close Modal" >&times;
+					</span>
+					<div id = "id04" class = "container-text fadeInDown">
+						<p>	
+							Chiba is the capital and largest city of Chiba Prefecture,
+							with other major cities including Funabashi, Matsudo, Ichikawa 
+							and Kashiwa. Chiba Prefecture is located on Japan's eastern 
+							Pacific coast to the east of Tokyo, and is part of the Greater 
+							Tokyo Area, the most populous metropolitan area in the world. 
+							Chiba Prefecture largely consists of the Boso Peninsula, which 
+							encloses the eastern side of Tokyo Bay and separates it from Kanagawa Prefecture.
+						</p>
+					</div>
+				</div>
+				
+				<button id = "bt04" class = "button button1"
+				onclick = "document.getElementById('id04').style.display = 'none'"
+				>Information</button>
+			</div>
+
+			<div class = "mySlides fade">
+				<div class = "numbertext"> 5 / 7</div>
+				<div class = "img" style = "background-image: url('../Images/Slideshow/slideshow (5).jpg');"></div>
+				<div id = "c05" class = "container">
+					<span id = "span05" onclick = "document.getElementById('c05').style.display = 'none'" 
+						class = "close" title = "Close Modal" >&times;
+					</span>
+					<div id = "id05" class = "container-text fadeInDown">
+						<p>	Chiba is the capital and largest city of Chiba Prefecture,
+							with other major cities including Funabashi, Matsudo, Ichikawa 
+							and Kashiwa. Chiba Prefecture is located on Japan's eastern 
+							Pacific coast to the east of Tokyo, and is part of the Greater 
+							Tokyo Area, the most populous metropolitan area in the world. 
+							Chiba Prefecture largely consists of the Boso Peninsula, which 
+							encloses the eastern side of Tokyo Bay and separates it from Kanagawa Prefecture.
+						</p>
+					</div>
+				</div>
+				
+				<button id = "bt05" class = "button button1"
+				onclick = "document.getElementById('id05').style.display = 'none'"
+				>Information</button>
+			</div>
+			<div class = "mySlides fade">
+				<div class = "numbertext"> 6 / 7</div>
+				<div class = "img" style = "background-image: url('../Images/Slideshow/slideshow (6).jpg');"></div>
+				<div id = "c06" class = "container">
+					<span id = "span06" onclick = "document.getElementById('c06').style.display = 'none'" 
+						class = "close" title = "Close Modal" >&times;
+					</span>
+					<div id = "id06" class = "container-text fadeInDown">
+						<p>
+
+						</p>
+					</div>
+				</div>
+				
+				<button id = "bt06" class = "button button1"
+				onclick = "document.getElementById('id06').style.display = 'none'"
+				>Information</button>
+			</div>
+			<div class = "mySlides fade">
+				<div class = "numbertext"> 7 / 7</div>
+				<div class = "img" style = "background-image: url('../Images/Slideshow/slideshow (7).jpg');"></div>
+				<div id = "c07" class = "container">
+					<span id = "span07" onclick = "document.getElementById('c07').style.display = 'none'" 
+						class = "close" title = "Close Modal" >&times;
+					</span>
+					<div id = "id07" class = "container-text fadeInDown">
+						<p>
+
+						</p>
+					</div>
+				</div>
+				
+				<button id = "bt07" class = "button button1"
+				onclick = "document.getElementById('id07').style.display = 'none'"
 				>Information</button>
 			</div>
 			
@@ -79,15 +169,7 @@
 			<a class = "next" onclick = "plusSlides(1)">&#10095;</a>
 			
 		</div>
-		<br>
+		<script src = "../Scripts/SlideShowScripts.js"></script>
 		
-		<div style = "text-align: center">
-			<span class = "dot" onclick = "currentSlide(1)"></span>
-			<span class = "dot" onclick = "currentSlide(2)"></span>
-			<span class = "dot" onclick = "currentSlide(3)"></span>
-		</div>
-		
-		<script src = "../Scripts/Script2.js"></script>
-		<script src = "../Scripts/Script5.js"></script>	
 </body>
 </html>
