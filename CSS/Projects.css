@@ -3,14 +3,11 @@ body
     height: 100%;
     font-family: Arial;
     margin: 0;
-
 }
-
 *
 {
     box-sizing :border-box;
 }
-
 .background-img
 {
     background-image: url("../Images/hiroyoshi-urushima-vfRkE_9wuPo-unsplash.jpg");
@@ -18,7 +15,6 @@ body
     min-height: 640px;
     height: 977px;
     width: 1880px;
-    
     /* Image Scaling */
     background-size: cover;
     background-repeat: no-repeat;
@@ -41,10 +37,20 @@ body
     transform: translate(-50%, 0);  
     overflow: auto;
 }
+.interest-holder
+{
+    position: relative;
+    width: 90%;
+    height: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 10px;
+    transition-duration: 1s;
+}
 .interests
 {
-    width: 80%;
-    height: 15%;
+    width: 100%;
+    height: 100%;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
@@ -55,62 +61,64 @@ body
     transition: 0.5s;
     border: 1px solid black;
     cursor: pointer;
+    filter: blur(2px);
 }
 .interests:hover
 {
     border: 1px solid white;
     background-position: right;
 }
+.interest-text 
+{
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.2);
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 10px;
+    height: 100%;
+    transition-duration: 1s;
+    cursor: pointer;
+}
+.interest-text:hover 
+{
+    text-decoration: underline;
+}
 .kanagawa-park
 {
     background-image: url("../Images/Interests/kanagawa-park.jpg");
-    top: 5%;
 }
 .osaka-castle
 {
     background-image: url("../Images/Interests/osaka-castle.jpg");
-    top: 22%;
+
 }
 .Shirakawa-go-Village
 {
     background-image: url("../Images/Interests/Shirakawa-Village.jpg");
-    top: 39%;
+
 }
 .sapporo
 {
     background-image: url("../Images/Interests/sapporo.jpg");
-    top: 56%;
+
 }
 .tokyo
 {
     background-image: url("../Images/Interests/tokyo.jpg");
-    top: 73%;
+
 }   
 .Sengen-Shrine
 {
     background-image: url("../Images/Interests/Sengen-Shrine.jpg");
-    top: 90%;
-}
-
-.text-container
-{
-    display: none;
-    position: relative;
-    background-color: black;
-    border-radius: 5px;
-    width: 500px;
-    height: 300px;
-    left: 550px;
-    opacity: 0.8;
-
-    /* Text */
-    font-size: 15px;
-    color: white;
-    font-family: Arial;
-    padding: 20px 40px;
 
 }
-
 .text
 {
     position: realtive;
@@ -122,7 +130,6 @@ body
     font-size: 16px;
     border-radius: 5px;
 }
-
 .splash
 {
     position: fixed;
@@ -170,19 +177,16 @@ body
 {
     width: 10px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track 
 {
     background: #f1f1f1;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb 
 {
     background: #5c5c5e;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover 
 {
