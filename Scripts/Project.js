@@ -96,10 +96,9 @@ for (i = 0; i < coll.length; i++)
     let a2 = array2[i];
     let c = coll[i];
     let hide = h_s[i];
-    console.log(hide);
     coll[i].addEventListener("click", (event) =>
     {
-        if(c.style.height === "30%")
+        if(c.style.height === "35%")
         {
             c.style.height = "15%";
             c.lastElementChild.innerHTML = a2;
@@ -110,7 +109,7 @@ for (i = 0; i < coll.length; i++)
         }
         else 
         {
-            c.style.height = "30%";
+            c.style.height = "35%";
             c.lastElementChild.innerHTML = a;
             c.lastElementChild.style.backgroundColor = "rgba(0,0,0, 0.55)";
             c.lastElementChild.style.textDecoration = "none";
