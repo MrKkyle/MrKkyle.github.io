@@ -354,8 +354,8 @@ span.psw
 {
 	display: block;
 	position: absolute;
-	width: 325px;
-	height: 175px;
+    width: 30%;
+    height: 26%;
 	opacity: 1;
 	background-image: url("../Images/Hokkaido.jpg");
 	background-position: center;
@@ -379,8 +379,8 @@ span.psw
 {
 	display: block;
 	position: absolute;
-	width: 325px;
-	height: 175px;
+    width: 30%;
+    height: 26%;
 	opacity: 1;
 	background-image: url("../Images/Tohoku.jpg");
 	background-position: center;
@@ -400,8 +400,8 @@ span.psw
 {
 	display: block;
 	position: absolute;
-	width: 325px;
-	height: 175px;
+    width: 30%;
+    height: 26%;
 	opacity: 1;
 	background-image: url("../Images/Kanto.jpg");
 	background-position: center;
@@ -421,8 +421,8 @@ span.psw
 {
 	display: block;
 	position: absolute;
-	width: 325px;
-	height: 175px;
+    width: 30%;
+    height: 26%;
 	opacity: 1;
 	background-image: url("../Images/Chubu.jpg");
 	background-position: center;
@@ -442,8 +442,8 @@ span.psw
 {
 	display: block;
 	position: absolute;
-	width: 325px;
-	height: 175px;
+    width: 30%;
+    height: 26%;
 	opacity: 1;
 	background-image: url("../Images/Kansai.jpg");
 	background-position: center;
@@ -463,8 +463,8 @@ span.psw
 {
 	display: block;
 	position: absolute;
-	width: 325px;
-	height: 175px;
+    width: 30%;
+    height: 26%;
 	opacity: 1;
 	background-image: url("../Images/Chugoku.jpg");
 	background-position: center;
@@ -484,8 +484,8 @@ span.psw
 {
 	display: block;
 	position: absolute;
-	width: 325px;
-	height: 175px;
+    width: 30%;
+    height: 26%;
 	opacity: 1;
 	background-image: url("../Images/Shikoku.jpg");
 	background-position: center;
@@ -505,8 +505,8 @@ span.psw
 {
 	display: block;
 	position: absolute;
-	width: 325px;
-	height: 175px;
+    width: 30%;
+    height: 26%;
 	opacity: 1;
 	background-image: url("../Images/Kyushu-Okinawa.jpg");
 	background-position: center;
@@ -638,6 +638,19 @@ a:visited
     border: 2px solid black; 
 	left: 2%;
 }
+.middle 
+{
+	transition: 1s ease;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-family: Calibri;
+	font-size: 15px;
+	background-color: aliceblue;
+}
 .special
 {
     position: absolute;
@@ -650,8 +663,9 @@ a:visited
 	border-radius: 5px;
 	border: 1px solid black;
 }
-.special:hover
+.special:hover .middle
 {
+	opacity: 1;
 	border: 1px solid white;
 }
 .w3schools
