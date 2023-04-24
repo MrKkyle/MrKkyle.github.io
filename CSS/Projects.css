@@ -37,6 +37,21 @@ body
     transform: translate(-50%, 0);  
     overflow: auto;
 }
+.h-i-text
+{
+    position: absolute;
+    display: none;
+    width: 25px;
+    height: 25px;
+    top: 5px;
+    left: 5px;
+    background-color:rgb(255, 255, 255);
+    background-image: url(/Images/icons8-hide-100.png);
+    background-size: cover;
+    background-position: center;
+    z-index: 10;
+    border-radius: 10px;
+}
 .interest-holder
 {
     position: relative;
@@ -79,7 +94,7 @@ body
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    padding: 60px 20px;
+    padding: 60px;
     text-align: center;
     border-radius: 10px;
     height: 100%;
