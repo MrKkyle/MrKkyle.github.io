@@ -46,7 +46,7 @@ body
     z-index: 200;
     color: white;
     text-align: center;
-    font-size: 20px;
+	font-size: 18px;
     line-height: 90vh;
 }
 .splash-screen.display-none

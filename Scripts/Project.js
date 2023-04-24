@@ -10,73 +10,26 @@ window.addEventListener("load", event =>
 })
 
 /* ------------INTERESTS--------------- */
+var interests = document.querySelectorAll(".interest-holder");
+var z;
+for(z = 0; z < interests.length; z++)
+{
+    /* Use let inside for loops, since var only takes the last element */
+    let int_ = interests[z].firstElementChild;
+    let int = interests[z];
+    int.onmouseover = function(event)
+    {   
+        int_.style.filter = "blur(0px)";
+        int.onmouseleave = function (event)
+        {
+            int_.style.filter = "blur(1px)";
 
-let osaka = document.getElementById("t-o");
-let sapporo = document.getElementById("t-s");
-let tokyo = document.getElementById("t-ty");
-let sengen = document.getElementById("t-ss");
-let shirakawa = document.getElementById("t-sv");
-let kanagawa = document.getElementById("t-kp");
-
-let kanagawa_main = document.getElementById("1");
-let osaka_main = document.getElementById("2");
-let shirakawa_main = document.getElementById("3");
-let sapporo_main = document.getElementById("4");
-let tokyo_main = document.getElementById("5");
-let sengen_main = document.getElementById("6");
-
-
-kanagawa.onmouseover = function(event)
-{
-    kanagawa_main.style.filter = "blur(0px)";
-    kanagawa.onmouseleave = function(event)
-    {
-        kanagawa_main.style.filter = "blur(2px)";
-    }
-}
-osaka.onmouseover = function(event)
-{
-    osaka_main.style.filter = "blur(0px)";
-    osaka.onmouseleave = function(event)
-    {
-        osaka_main.style.filter = "blur(2px)";
-    }
-}
-sapporo.onmouseover = function(event)
-{
-    sapporo_main.style.filter = "blur(0px)";
-    sapporo.onmouseleave = function(event)
-    {
-        sapporo_main.style.filter = "blur(2px)";
-    }
-}
-sengen.onmouseover = function(event)
-{
-    sengen_main.style.filter = "blur(0px)";
-    sengen.onmouseleave = function(event)
-    {
-        sengen_main.style.filter = "blur(2px)";
-    }
-}
-shirakawa.onmouseover = function(event)
-{
-    shirakawa_main.style.filter = "blur(0px)";
-    shirakawa.onmouseleave = function(event)
-    {
-        shirakawa_main.style.filter = "blur(2px)";
-    }
-}
-tokyo.onmouseover = function(event)
-{
-    tokyo_main.style.filter = "blur(0px)";
-    tokyo.onmouseleave = function(event)
-    {
-        tokyo_main.style.filter = "blur(2px)";
+        }
     }
 }
 
-/* Collapsible elements */
 
+/* ------------Collapsible elements--------------- */
 var coll = document.querySelectorAll(".interest-holder");
 var h_s = document.querySelectorAll(".h-i-text");
 var i;
@@ -105,7 +58,6 @@ for (i = 0; i < coll.length; i++)
             c.lastElementChild.style.backgroundColor = "rgba(0,0,0, 0.2)";
             c.lastElementChild.style.textDecoration = "underline";
             hide.style.display = "none";
-
         }
         else 
         {
@@ -121,12 +73,11 @@ for (i = 0; i < coll.length; i++)
                     c.lastElementChild.innerHTML = "";
                     c.firstElementChild.style.filter = "blur(0px)";
                     c.lastElementChild.style.backgroundColor = "rgba(0,0,0,0)";
-                    
                 }
                 hide.onmouseleave = function(event)
                 {
                     c.lastElementChild.innerHTML = a;
-                    c.firstElementChild.style.filter = "blur(2px)";
+                    c.firstElementChild.style.filter = "blur(1px)";
                     c.lastElementChild.style.backgroundColor = "rgba(0,0,0,0.55)";
                 }
             }
