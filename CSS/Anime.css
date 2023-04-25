@@ -1,0 +1,147 @@
+body
+{
+	font-family: Arial;
+	margin: 0;
+}
+*
+{
+	box-sizing: border-box;
+}
+.background-image 
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    margin: 0px;
+}
+.card-container
+{
+	position: relative;
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.6);
+}
+.card 
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	background-color: white;
+    transition: 0.3s;
+    width: 30%;
+    margin: 15px;
+	float: left;
+	position: relative;
+}
+.card:hover 
+{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card-text 
+{
+    font-size: 13px;
+    font-family: Calibri;
+    padding: 5px;
+	text-align: center;
+}
+.image 
+{
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+	cursor: pointer;
+}
+.splash
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #070707;
+	height: 100%;
+	z-index: 200;
+	color: white;
+	text-align: center;
+	line-height: 90vh;
+	font-size: 18px;
+}
+.splash.display-none
+{
+	position: fixed;
+	opacity : 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	z-index: -10; 	/* Makes it fall behind everything else */
+	color: white;
+	text-align: center;
+	transition: all 0.5s;
+}
+@keyframes fadeIn
+{
+	to
+	{
+		opacity: 1;
+	}
+}
+
+.button
+{
+    position: relative;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+.action
+{
+	background-image: linear-gradient(to right bottom, rgb(85, 228, 29), rgb(155, 241, 15), rgb(238, 215, 10));
+
+}
+.supernatural
+{
+	background-image: linear-gradient(to right bottom, rgb(84, 43, 199), rgb(156, 228, 138), rgb(90, 88, 72));
+}
+.comedy
+{
+	background-image: linear-gradient(to right bottom, rgb(199, 70, 30), rgb(211, 140, 58), rgb(235, 212, 9));
+}
+.school
+{
+	background-image: linear-gradient(to right bottom, rgb(129, 230, 13), rgb(14, 141, 46), rgb(10, 238, 189));
+}
+.sci-fi
+{
+	background-image: linear-gradient(to right bottom, rgb(22, 160, 125), rgb(255, 255, 255), rgb(121, 168, 162));
+}
+.shounen 
+{
+	background-image: linear-gradient(to right bottom, rgb(228, 29, 72), rgb(237, 241, 15), rgb(53, 48, 10));
+}
+.slice-of-life 
+{
+	background-image: linear-gradient(to right bottom, rgb(32, 29, 228), rgb(179, 199, 218), rgb(29, 25, 37));
+}
+.drama 
+{
+	background-image: linear-gradient(to right bottom, rgb(173, 241, 146), rgb(155, 123, 185), rgb(104, 9, 9));
+}
+.music 
+{
+	background-image: linear-gradient(to right bottom, rgb(221, 29, 228),rgb(103, 150, 28), rgb(70, 66, 66));
+}
+.psychological
+{
+	background-image: linear-gradient(to right bottom, rgb(112, 16, 16),rgb(121, 121, 167), rgb(3, 29, 114));
+}
+.mystery
+{
+	background-image: linear-gradient(to right bottom, rgb(25, 26, 25), rgb(52, 55, 226), rgb(241, 220, 29));
+}
+.fantasy
+{
+	background-image: linear-gradient(to right bottom, rgb(241, 189, 15), rgb(21, 172, 53), rgb(10, 238, 227));
+}
