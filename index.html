@@ -1,9 +1,8 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta name = "viewport" content = "width = device-width, initial-scale = 1" charset="utf-8">
-<link rel = "stylesheet" type = "text/css" href = "MyWebsite.css" ></link> 
+<link rel = "stylesheet" type = "text/css" href = "../CSS/MyWebsite.css" ></link> 
 <style>
 
 </style>
@@ -13,54 +12,21 @@
 	<div class = "splash">
 		Welcome
 	</div>
-			
 		<div class = "bg-img" id = "bg01">
 			
-			<div class = "navigation-bar" id = "navigation">
-				<div class = "navi"><a href = "#slideshow" onclick = "window.location.href = 'Main/WebsiteSlideshow.html';"">Slideshow</a></div>
-				<div class = "navi"><a href = "#videos" onclick = "window.location.href = 'Main/Videos.html';">Videos</a></div>
-				<div class = "navi"><a href = "#news" >News</a></div>
-				<div class = "navi"><a href = "#projects" onclick = "window.location.href = 'Main/Projects.html';">Projects</a></div>
-				<div class = "navi"><a href = "#weather">Weather</a></div>
-				<div class = "navi"><a href = "#registration" id = "reg01" 
-					onclick = "document.getElementById('id01').style.display = 'block'">Sign-up</a></div>
-				<div class = "navi"><a href = "#anime">Anime</a></div>
+			<div id="myNav" class="overlay">
+				<a href = "javascript:void(0)" class= "closebtn" id = "close-btn">&times;</a>
+				<div class="overlay-content">
+					<a href = "#slideshow" onclick = "window.location.href = 'WebsiteSlideshow.html';"">Slideshow</a>
+					<a href = "#videos" onclick = "window.location.href = 'Videos.html';">Videos</a>
+					<a href = "#projects" onclick = "window.location.href = 'Projects.html';">Famous Locations</a>
+					<a href = "#anime" onclick = "window.location.href = 'Anime.html';">Anime</a>
+				</div>
 			</div>
-
-
-
-			<div id = "id01" class = "modal">
-				<form class = "modal-content animate" action = "submit.php" method = "post">
-					<div class = "imgcontainer">
-						<span id = "span01" onclick = "document.getElementById('id01').style.display = 'none'" 
-						class = "close" title = "Close Modal" >&times;
-						</span>
-						<img src = "Images/Simple.gif" alt = "Avatar" class = "avatar">
-					</div>	
-					
-					<div class = "modal-container">
-						
-						<label for = "uname"><b>Username</b></label>
-						<input type = "text" placeholder = "Enter Username" name = "name" required>
-						
-
-						<label for = "psw"><b>Password</b></label>
-						<input type = "password" placeholder = "Enter A Password" name = "psw" required>
-						
-
-						<label for = "email"><b>Email</b></label>
-						<input type = "email" placeholder = "Enter Email" name = "email" required>
-						
-						<label for = "comment"><b>Comment</b></label>
-						<input type = "comment" placeholder = "Short Motivation(not required)" name = "comment">
-						<button class = "button4" type = "submit">Submit</button>
-						</br>
-					</div>		
-				</form>
-			</div>
+			<span class = "navi" id = "navi">&#9776; open</span>
 		</div>
 	
-	<div class = "container-main" id = "cm0">
+	<div class = "container-main fadeIn" id = "cm0">
 		<div class = "prefectures" >
 			<div class = "text">
 				Prefectures of Japan
@@ -78,21 +44,21 @@
 			<div class = "text">
 				Special thanks to the following organizations and people
 			</div>
-			<div class = "special w3schools"></div>
-			<div class = "special keenan" onclick = "window.open('https://www.linkedin.com/in/keenan-faure-84a604227/', '_blank')"></div>
-			<div class = "special ricky" onclick = "window.open('https://www.linkedin.com/in/romano-borman-8772a519/', '_blank')"></div>
-			<div class = "special wallpaper-abyss"></div>
-			<div class = "special xampp"></div>
+			<div class = "special w3schools"><div class = "middle" style = "border: 2px solid green;">W3Schools</div></div>
+			<div class = "special keenan" onclick = "window.open('https://www.linkedin.com/in/keenan-faure-84a604227/', '_blank')"><div class = "middle" style = "border: 2px solid rgb(78, 59, 7);">Keenan Faure</div></div>
+			<div class = "special ricky" onclick = "window.open('https://www.linkedin.com/in/romano-borman-8772a519/', '_blank')"><div class = "middle" style = "border: 2px solid rgb(94, 95, 11);">Romano Borman</div></div>
+			<div class = "special wallpaper-abyss"><div class = "middle" style = "border: 2px solid rgb(6, 163, 168);">Wallpaper Abyss</div></div>
+			<div class = "special xampp"><div class = "middle" style = "border: 2px solid rgb(235, 162, 6);">XAMPP</div></div>
 		</div>
 		<div class = "creator">
 			<div class = "text">
 				This Project was designed by:
 			</div>
 			<div class = "special watashi"></div>
-			<div class = "text-page" style = "color: rgb(241, 241, 241); top: 40px; left: 330px; font-size:14px; background-color: rgba(0, 0, 0, 0.4); border-radius: 5px;">
+			<div class = "text-page" style = "color: rgb(241, 241, 241); top: 40px; left: 330px; font-size:14px; background-color: rgba(0, 0, 0, 0.7); border-radius: 5px;">
 				Hello eveyone! I am Kyle Faure, currently an computer science undergraduate<br>
 				at the University of the Western Cape. This project features my understanding <br>
-				of HTML/CSS/JAVASCRIPT/PHP and will be used to show my knowledge <br>
+				of HTML/CSS/Javascript/PHP and will be used to show my knowledge <br>
 				about these languages when applying for potential future Jobs. <br>
 				Why would i create a website that focuses on Japan? The answer is simple. Its my <br>
 				my dream to one day go to Japan, i find it fitting to remind myself of this dream <br>
@@ -110,7 +76,7 @@
 			<span id = "sp1" onclick = "document.getElementById('mp01').style.display = 'none'" 
 			class = "close" title = "Close Modal">&times;</span>
 			<br>
-			<img src = "Images/Hokkaido.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
+			<img src = "../Images/Hokkaido.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
 			<br>
 			<br>
 			<hr>
@@ -118,9 +84,9 @@
 			<div class = "text-prefecture">
 			•<b>Hokkaido</b> has a different feel from the rest of Japan. <br>
 			•The weather is cooler with less humidity in the summer and the region escapes the earlier monsoon.<br> 
-			•Winters are cold and long, stretching from November to March, 
-			but are ideal for winter sports such as skiing and snowboarding, 
-			the celebrated snow festival (Yuki Matsuri) in Sapporo and the frozen 
+			•Winters are cold and long, stretching from November to March, <br>
+			but are ideal for winter sports such as skiing and snowboarding, <br>
+			the celebrated snow festival (Yuki Matsuri) in Sapporo and the frozen <br>
 			northern seas off the coast of Wakkanai and the islands of Rebun and Rishiri.<br><br>
 			<hr>
 			<b>Local Delicacies</b><br>
@@ -154,7 +120,7 @@
 			<span id = "sp2" onclick = "document.getElementById('mp02').style.display = 'none'" 
 			class = "close" title = "Close Modal">&times;</span>
 			<br><br>
-			<img src = "Images/Tohoku.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
+			<img src = "../Images/Tohoku.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
 			<br>
 			<br>
 			<hr>
@@ -198,7 +164,7 @@
 			<span id = "sp3" onclick = "document.getElementById('mp03').style.display = 'none'" 
 			class = "close" title = "Close Modal">&times;</span>
 			<br><br>
-			<img src = "Images/Kanto.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
+			<img src = "../Images/Kanto.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
 			<br>
 			<br>
 			<hr>
@@ -241,7 +207,7 @@
 			<span id = "sp4" onclick = "document.getElementById('mp04').style.display = 'none'" 
 			class = "close" title = "Close Modal">&times;</span>
 			<br><br>
-			<img src = "Images/Chubu.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
+			<img src = "../Images/Chubu.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
 			<br>
 			<br>
 			<hr>
@@ -283,7 +249,7 @@
 			<span id = "sp5" onclick = "document.getElementById('mp05').style.display = 'none'" 
 			class = "close" title = "Close Modal">&times;</span>
 			<br><br>
-			<img src = "Images/Kansai.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
+			<img src = "../Images/Kansai.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
 			<br>
 			<br>
 			<hr>
@@ -327,7 +293,7 @@
 			<div class = "text-prefecture" style = "font-size: 15px; text-align: center;"><b>Chugoku</b></div>
 			<span id = "sp6" onclick = "document.getElementById('mp06').style.display = 'none'" class = "close" title = "Close Modal">&times;</span>
 			<br><br>
-			<img src = "Images/Chugoku.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
+			<img src = "../Images/Chugoku.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
 			<br>
 			<br>
 			<hr>
@@ -372,7 +338,7 @@
 			<span id = "sp7" onclick = "document.getElementById('mp07').style.display = 'none'" 
 			class = "close" title = "Close Modal">&times;</span>
 			<br><br>
-			<img src = "Images/Shikoku.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
+			<img src = "../Images/Shikoku.jpg" alt = "Avatar" class = "img-container-prefecture"></img>
 			<br>
 			<br>
 			<hr>
@@ -415,7 +381,7 @@
 			<span id = "sp8" onclick = "document.getElementById('mp08').style.display = 'none'" 
 			class = "close" title = "Close Modal">&times;</span>
 			<br><br>
-			<img src = "Images/Kyushu-Okinawa.jpg" alt = "Avatar" class = "img-container-prefecture"></img><br>
+			<img src = "../Images/Kyushu-Okinawa.jpg" alt = "Avatar" class = "img-container-prefecture"></img><br>
 			<br>
 			<hr>
 			<br>
@@ -452,7 +418,7 @@
 	</div>
 	
 	<script src = "../Scripts/Script4.js"></script>
-	<script src = "../Scripts/Script6.js"></script>
+	<script src = "../Scripts/Prefectures.js"></script>
 	<script src = "../Scripts/Splash-screen.js"></script>
 </body>
 </html>
