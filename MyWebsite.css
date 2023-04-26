@@ -212,183 +212,68 @@ h1
 	background-color: rgb(0,0,0);
 	background-color: rgba(0,0,0,0.4);
 	top: 0%;
-	left: 2%;
+	left: 50%;
+	transform: translate(-50%, 0);
 	filter: blur(0px);
 	z-index: 1;
 	border: 2px solid black;  
 	border-radius: 5px;
+	overflow: auto;
 }
-.prefecture-Hokkaido
+.prefecture 
 {
 	display: block;
-	position: absolute;
-    width: 30%;
-    height: 26%;
+	position: relative;
+    width: 32%;
+    height: 30%;
 	opacity: 1;
-	background-image: url("../Images/Hokkaido.jpg");
 	background-position: center;
 	background-size: cover;
 	background-color: black;
-	top: 60px;
-	left: 25px;
 	text-align: center;
 	font-size: 50px;
 	border-radius: 5px;
 	cursor: pointer;
 	border: 1px solid black;
-
+	margin: 5px;
+	float: left;
 }
-.prefecture-Hokkaido:hover
+.prefecture:hover 
 {
 	border: 1px solid white;
 }
-
-.prefecture-Tohoku
+.Hokkaido
 {
-	display: block;
-	position: absolute;
-    width: 30%;
-    height: 26%;
-	opacity: 1;
-	background-image: url("../Images/Tohoku.jpg");
-	background-position: center;
-	background-size: cover;
-	background-color: black;
-	top: 60px;
-	left: 380px;
-	border-radius: 5px;
-	cursor: pointer;
-	border: 1px solid black;	
+	background-image: url("../Images/Hokkaido.jpg");
 }
-.prefecture-Tohoku:hover
+.Tohoku
 {
-	border: 1px solid white;
+	background-image: url("../Images/Tohoku.jpg");	
 }
-.prefecture-Kanto
+.Kanto
 {
-	display: block;
-	position: absolute;
-    width: 30%;
-    height: 26%;
-	opacity: 1;
 	background-image: url("../Images/Kanto.jpg");
-	background-position: center;
-	background-size: cover;
-	background-color: black;
-	top: 60px;
-	left: 735px;
-	border-radius: 5px;
-	cursor: pointer;
-	border: 1px solid black;
 }
-.prefecture-Kanto:hover
+.Chubu
 {
-	border: 1px solid white;
-}
-.prefecture-Chubu
-{
-	display: block;
-	position: absolute;
-    width: 30%;
-    height: 26%;
-	opacity: 1;
 	background-image: url("../Images/Chubu.jpg");
-	background-position: center;
-	background-size: cover;
-	background-color: black;
-	top: 270px;
-	left: 25px;
-	border-radius: 5px;
-	cursor: pointer;
-	border: 1px solid black;
 }
-.prefecture-Chubu:hover
+.Kansai
 {
-	border: 1px solid white;
-}
-.prefecture-Kansai
-{
-	display: block;
-	position: absolute;
-    width: 30%;
-    height: 26%;
-	opacity: 1;
 	background-image: url("../Images/Kansai.jpg");
-	background-position: center;
-	background-size: cover;
-	background-color: black;
-	top: 270px;
-	left: 380px;
-	border-radius: 5px;
-	cursor: pointer;
-	border: 1px solid black;
 }
-.prefecture-Kansai:hover
+.Chugoku
 {
-	border: 1px solid white;
-}
-.prefecture-Chugoku
-{
-	display: block;
-	position: absolute;
-    width: 30%;
-    height: 26%;
-	opacity: 1;
 	background-image: url("../Images/Chugoku.jpg");
-	background-position: center;
-	background-size: cover;
-	background-color: black;
-	top: 270px;
-	left: 735px;
-	border-radius: 5px;
-	cursor: pointer;	
-	border: 1px solid black;
 }
-.prefecture-Chugoku:hover
+.Shikoku
 {
-	border: 1px solid white;
-}
-.prefecture-Shikoku
-{
-	display: block;
-	position: absolute;
-    width: 30%;
-    height: 26%;
-	opacity: 1;
 	background-image: url("../Images/Shikoku.jpg");
-	background-position: center;
-	background-size: cover;
-	background-color: black;
-	top: 460px;
-	left: 25px;
-	border-radius: 5px;
-	cursor: pointer;
-	border: 1px solid black;
 }
-.prefecture-Shikoku:hover
+.Kyushu-Okinawa
 {
-	border: 1px solid white;
-}
-.prefecture-Kyushu-Okinawa
-{
-	display: block;
-	position: absolute;
-    width: 30%;
-    height: 26%;
-	opacity: 1;
+
 	background-image: url("../Images/Kyushu-Okinawa.jpg");
-	background-position: center;
-	background-size: cover;
-	background-color: black;
-	top: 460px;
-	left: 380px;
-	border-radius: 5px;
-	cursor: pointer;
-	border: 1px solid black;
-}
-.prefecture-Kyushu-Okinawa:hover
-{
-	border: 1px solid white;
 }
 .modal-prefecture 
 {
@@ -500,8 +385,9 @@ h1
 }
 .navi 
 {
-	font-size:30px;
-	cursor:pointer;
+	font-size: 25px;
+	font-family: Calibri;
+	cursor: pointer;
 	margin: 7px;
 }
 
@@ -510,8 +396,8 @@ h1
     position: absolute;
     height: 1400px;
     width: 1200px;
-    left: 52%;
-    transform: translate(-49%, 0);
+    left: 50%;
+    transform: translate(-50%, 0);
     top: 8%;
     border-radius: 5px;
 	display: block;
@@ -526,7 +412,8 @@ h1
     border-radius: 5px;
 	background-color: rgba(0,0,0,0.4);
     border: 2px solid black; 
-	left: 2%;
+	left: 50%;
+    transform: translate(-50%, 0);
 }
 .creator
 {
@@ -537,7 +424,8 @@ h1
     border-radius: 5px;
 	background-color: rgba(0,0,0,0.4);
     border: 2px solid black; 
-	left: 2%;
+	left: 50%;
+    transform: translate(-50%, 0);
 }
 .middle 
 {

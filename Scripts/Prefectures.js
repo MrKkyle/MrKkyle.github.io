@@ -18,11 +18,7 @@ var p6 = document.getElementById("prefecture06");
 var p7 = document.getElementById("prefecture07");
 var p8 = document.getElementById("prefecture08");
 
-var bg = document.getElementById("bg01");
-
-var register = document.getElementById("reg01");
 var main = document.getElementById("cm0");
-var span = document.getElementById("span01");
 var sp1 = document.getElementById("sp1");
 var sp2 = document.getElementById("sp2");
 var sp3 = document.getElementById("sp3");
