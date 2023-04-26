@@ -1,11 +1,15 @@
 /*get the modal */
+document.addEventListener("DOMContentLoaded", splash);
 
-const splash = document.querySelector(".splash");
-
-window.addEventListener("load", event =>
+function splash()
 {
-	setTimeout(() =>
+	const splash = document.querySelector(".splash");
+
+	window.addEventListener("load", event =>
 	{
-		splash.classList.add("display-none");
-	}, 2000);
-})
+		setTimeout(() =>
+		{
+			splash.classList.add("display-none");
+		}, 2000);
+	})
+}
