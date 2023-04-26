@@ -388,6 +388,8 @@ h1
 	font-family: Calibri;
 	cursor: pointer;
 	margin: 4px;
+	top: 1px;
+    position: relative;
 	background-color: rgba(0,0,0,0.6);
 	border-radius: 5px;
 	color: white;
