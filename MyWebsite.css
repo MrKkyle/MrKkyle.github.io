@@ -11,7 +11,7 @@ body
 .bg-img
 {
 
-	background-image: url("../Images/ji-seongkwang-htMMBc71Hjc-unsplash.jpg");
+	background-image: url(/Images/ji-seongkwang-htMMBc71Hjc-unsplash.jpg);
 	height: 100%;
 	width: 100%;
 	background-position: center;
@@ -385,10 +385,19 @@ h1
 }
 .navi 
 {
-	font-size: 25px;
+	font-size: 22px;
 	font-family: Calibri;
 	cursor: pointer;
-	margin: 7px;
+	margin: 4px;
+	background-color: rgba(0,0,0,0.6);
+	border-radius: 5px;
+	color: white;
+	transition-duration: 0.2s;
+}
+.navi:hover 
+{
+	color: rgb(0, 0, 0);
+	background-color: rgba(255,255,255,0.6)
 }
 
 .container-main
