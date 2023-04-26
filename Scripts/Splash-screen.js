@@ -10,6 +10,6 @@ function splash()
 		setTimeout(() =>
 		{
 			splash.classList.add("display-none");
-		}, 2000);
+		}, 2500);
 	})
 }

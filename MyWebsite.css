@@ -160,6 +160,17 @@ h1
 		opacity: 1;
 	}
 }
+@keyframes fadeInn
+{
+	from
+	{
+		opacity: 0;
+	}
+	to
+	{
+		opacity: 1;
+	}
+}
 .error
 {
 	color: #FF0000;
@@ -373,6 +384,8 @@ h1
     top: 8%;
     border-radius: 5px;
 	display: block;
+	animation: fadeInn ease-in 2s;
+	animation-fill-mode: ease forwards;
 }
 
 .container-ST
