@@ -1,3 +1,21 @@
+/* Splash Screen */
+document.addEventListener("DOMContentLoaded", splash);
+let container = document.getElementById("cm0");
+
+function splash()
+{
+	const splash = document.querySelector(".splash");
+
+	window.addEventListener("load", event =>
+	{
+		setTimeout(() =>
+		{
+			splash.classList.add("display-none");
+			container.style.display = "block";
+		}, 2500);
+	})
+}
+
 /* Prefecture onclick javascript */
 let prefecture = document.querySelectorAll(".prefecture");
 let modal = document.querySelectorAll(".modal-prefecture");

@@ -163,11 +163,11 @@ h1
 {
 	from
 	{
-		opacity: 0;
+		display: none;
 	}
 	to
 	{
-		opacity: 1;
+		display: block;
 	}
 }
 .error
@@ -383,7 +383,7 @@ h1
     transform: translate(-50%, 0);
     top: 8%;
     border-radius: 5px;
-	display: block;
+	display: none;
 	animation: fadeInn ease-in 2s;
 }
 
