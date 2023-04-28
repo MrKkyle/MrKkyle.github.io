@@ -1,50 +1,20 @@
-vid1 = document.getElementById("vid1");
-vid2 = document.getElementById("vid2");
-vid3 = document.getElementById("vid3");
-vid4 = document.getElementById("vid4");
-vid5 = document.getElementById("vid5");
-vid6 = document.getElementById("vid6");
+/* Video Player Script */
 vidPlayer = document.getElementById("vidPlayer");
+videos = document.querySelectorAll(".videos");
+var i;
 
-vid1.onclick = function(event)
+let array = ["https://www.youtube.com/embed/SOUK-YgFi6o", "https://www.youtube.com/embed/yK4aAYHKAjg", "https://www.youtube.com/embed/1cncN37SLuI", 
+"https://www.youtube.com/embed/4flSBiC5edI", "https://www.youtube.com/embed/pfiGoGyPsCg", "https://www.youtube.com/embed/nTCZUZQCZ8Q"];
+
+for(i = 0; i < videos.length; i++)
 {
-    if(vid1.onclick)
+    let vid = videos[i];
+    let a = array[i];
+    videos[i].onclick = function(event)
     {
-        vidPlayer.src = "https://www.youtube.com/embed/SOUK-YgFi6o";
-    }
-}
-vid2.onclick = function(event)
-{
-    if(vid2.onclick)
-    {
-        vidPlayer.src = "https://www.youtube.com/embed/yK4aAYHKAjg";
-    }
-}
-vid3.onclick = function(event)
-{
-    if(vid3.onclick)
-    {
-        vidPlayer.src = "https://www.youtube.com/embed/1cncN37SLuI";
-    }
-}
-vid4.onclick = function(event)
-{
-    if(vid4.onclick)
-    {
-        vidPlayer.src = "https://www.youtube.com/embed/4flSBiC5edI";
-    }
-}
-vid5.onclick = function(event)
-{
-    if(vid5.onclick)
-    {
-        vidPlayer.src = "https://www.youtube.com/embed/pfiGoGyPsCg";
-    }
-}
-vid6.onclick = function(event)
-{
-    if(vid6.onclick)
-    {
-        vidPlayer.src = "https://www.youtube.com/embed/nTCZUZQCZ8Q";
+        if(vid.onclick)
+        {
+            vidPlayer.src = a;
+        }    
     }
 }
