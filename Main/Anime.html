@@ -161,6 +161,17 @@
         </div>
     </div>
 
-    <script src = "../Scripts/Splash-screen.js"></script>
+    <script>
+        /* Splash Screen */
+        const splash = document.querySelector(".splash");
+
+        window.addEventListener("load", event =>
+        {
+            setTimeout(() =>
+            {
+                splash.classList.add("display-none");
+            }, 2500);
+        })
+    </script>
 </body>   
 </html> 
