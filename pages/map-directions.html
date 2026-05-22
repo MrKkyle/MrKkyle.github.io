@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>try{var t=localStorage.getItem('mpbc-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
-    <title>Midweek Bible Study | Montrose Park Bible Church</title>
+    <title>Map & Directions | Montrose Park Bible Church</title>
+    <meta
+      name="description"
+      content="Find Montrose Park Bible Church in Lentegeur, Cape Town, and get directions using Google Maps."
+    />
     <link rel="stylesheet" href="../styles/main.css" />
   </head>
   <body>
@@ -33,7 +37,7 @@
               <a href="about-video-glimpse.html">Video Glimpse</a>
             </div>
           </div>
-          <a href="map-directions.html">Map & Directions</a>
+          <a href="map-directions.html" aria-current="page">Map & Directions</a>
           <a href="bible-messages.html">Bible Messages</a>
           <a href="programmes.html">Programmes</a>
           <a href="contact.html">Contact Us</a>
@@ -43,44 +47,40 @@
     </header>
 
     <main>
-      <section class="page-backdrop">
+      <section class="page-backdrop page-backdrop--map">
         <div class="container">
           <div class="page-hero">
-            <h1>Midweek Bible Study</h1>
-            <p class="redirect-meta">Gathering each week to study Scripture deeply, pray together, and grow in faith.</p>
+            <h1>Map and Directions</h1>
+            <p class="redirect-meta">Find us easily and plan your visit this Sunday.</p>
           </div>
         </div>
       </section>
 
-      <section class="container page-content">
-        <article class="page-box">
+      <section class="container page-content map-page-grid">
+        <div class="page-box">
+          <h2>Montrose Park Bible Church</h2>
           <p>
-            Midweek Bible Study is a dedicated time for verse-by-verse learning, thoughtful discussion,
-            and practical application. It is open to adults and young adults seeking deeper understanding
-            of God’s Word.
+            Cynthia Cres, Lentegeur, Cape Town, 7786
           </p>
-          <p>
-            Sessions include prayer, teaching, and fellowship designed to strengthen everyday discipleship.
+          <p class="redirect-meta">
+            If the map does not load, use the button below to open Google Maps directly.
           </p>
           <div class="redirect-actions">
-            <a class="btn btn-primary" href="contact.html">Join Bible Study</a>
-            <a class="btn btn-soft" href="programmes.html">Back to Programmes</a>
+            <a class="btn btn-primary" href="https://maps.app.goo.gl/vC8bVTZsAD5LfCHW7" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+            <a class="btn btn-soft" href="contact.html">Contact Us</a>
           </div>
-        </article>
+        </div>
 
-        <div class="cards-grid programme-grid">
-          <article class="feature-card">
-            <div class="card-body">
-              <h3>Scripture Teaching</h3>
-              <p>Expository teaching through key books and themes of the Bible.</p>
-            </div>
-          </article>
-          <article class="feature-card">
-            <div class="card-body">
-              <h3>Prayer and Fellowship</h3>
-              <p>Supportive prayer time and encouragement in Christian community.</p>
-            </div>
-          </article>
+        <div class="page-box map-embed-box">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.541679851721!2d18.6258959765079!3d-34.029973627426315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc4f51f0443157%3A0x76bb3dd13d391f3d!2sMontrose%20Park%20Bible%20Church!5e0!3m2!1sen!2sza!4v1779439600094!5m2!1sen!2sza"
+            class="map-embed"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map to Montrose Park Bible Church"
+          ></iframe>
         </div>
       </section>
     </main>

@@ -651,6 +651,28 @@ a {
   background-image: url("https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1800&q=80");
 }
 
+.page-backdrop--map {
+  background-image: url("https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1800&q=80");
+}
+
+.map-page-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.map-embed-box {
+  padding: 0.65rem;
+}
+
+.map-embed {
+  width: 100%;
+  min-height: 480px;
+  border-radius: 12px;
+  display: block;
+}
+
 /* ── Sermon filter bar ── */
 .sermon-filter-bar {
   display: flex;
@@ -1159,6 +1181,10 @@ a {
   .cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .map-page-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 780px) {
@@ -1224,6 +1250,10 @@ a {
 
   .page-content {
     padding-top: 1.4rem;
+  }
+
+  .map-embed {
+    min-height: 380px;
   }
 
   .parallax-panel {
