@@ -1,6 +1,6 @@
 # Montrose Park Bible Church Website
 
-Static church website built with plain **HTML**, **CSS**, and **JavaScript**, now prepared for **Decap CMS** so sermons can be published through GitHub.
+Static church website built with plain **HTML**, **CSS**, and **JavaScript**, prepared for **Decap CMS** with **Netlify Identity + Git Gateway** so sermons and updates can be managed in a browser.
 
 ## What’s Included
 
@@ -25,14 +25,19 @@ Then open: `http://localhost:8080`
 
 ## Decap CMS Setup
 
-1. Replace `YOUR_GITHUB_USERNAME/YOUR_REPO_NAME` in `admin/config.yml` with your real GitHub repo.
-2. Deploy the site to a host that serves static files from GitHub, such as **Netlify** or **GitHub Pages**.
-3. Visit `https://your-site-url/admin/` to sign in and edit `data/sermons.json` through Decap CMS.
-4. Commit and publish sermon updates from the CMS; the Bible Messages page reads the published JSON file.
+This project is configured for the simplest Decap CMS setup on **Netlify**:
+
+1. Push the site to GitHub.
+2. Import the repository into **Netlify** as a new site.
+3. In Netlify, enable **Identity** and then enable **Git Gateway**.
+4. Invite yourself as a Netlify Identity user or enable registration temporarily.
+5. Visit `https://your-netlify-site/admin/` to sign in and edit `data/sermons.json` through Decap CMS.
+
+GitHub Pages can host the static site, but Decap login on GitHub Pages requires a separate OAuth service. Netlify avoids that extra authentication setup.
 
 ## Next Steps
 
-1. Connect the repo to GitHub and deploy it on Netlify or GitHub Pages.
-2. Configure Decap CMS authentication for the repository.
-3. Add more collections later for `latest-updates`, `about` pages, or events.
+1. Connect the repo to GitHub and deploy it on Netlify.
+2. Enable Netlify Identity and Git Gateway.
+3. Add more collections later for sermon pages, `latest-updates`, `about` pages, or events.
 4. Replace placeholder contact and donation details with your final church information.

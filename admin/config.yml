@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: mrkkyle/mrkkyle.github.io
+  name: git-gateway
   branch: main
 
 publish_mode: editorial_workflow
