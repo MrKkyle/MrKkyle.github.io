@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>try{var t=localStorage.getItem('mpbc-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
+    <title>Latest Updates | Montrose Park Bible Church</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a class="brand" href="../index.html">
+          <span class="brand-mark" aria-hidden="true">✝</span>
+          <span class="brand-text">Montrose Park Bible Church</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <div class="nav-dropdown" id="aboutDropdown">
+            <button
+              class="nav-dropdown-toggle"
+              id="aboutDropdownToggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              About us
+            </button>
+            <div class="nav-dropdown-menu" aria-label="About us submenu">
+              <a href="../redirects/about-introduction.html">Introduction</a>
+              <a href="../redirects/about-what-to-expect.html">What to expect</a>
+              <a href="../redirects/about-history.html">History</a>
+              <a href="../redirects/about-what-we-believe.html">What we believe</a>
+              <a href="../redirects/about-video-glimpse.html">Video Glimpse</a>
+            </div>
+          </div>
+          <a href="../redirects/map.html">Map & Directions</a>
+          <a href="bible-messages.html">Bible Messages</a>
+          <a href="programmes.html">Programmes</a>
+          <a href="contact.html">Contact Us</a>
+          <a class="button-link" href="../redirects/donate.html">Donations</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-backdrop">
+        <div class="container">
+          <div class="page-hero">
+            <h1>Latest Updates</h1>
+            <p class="redirect-meta">Stay up to date with church news, events, and ministry highlights.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container page-content">
+
+        <!-- ── Category filters ── -->
+        <div class="updates-filter-bar">
+          <span class="updates-filter-label">Filter by category</span>
+          <div class="updates-filter-pills" id="filterPills" role="list">
+            <button class="updates-pill is-active" data-category="all" type="button">All</button>
+          </div>
+        </div>
+
+        <!-- ── Updates grid ── -->
+        <div class="updates-grid" id="updatesList">
+          <!-- Rendered dynamically by updates.js -->
+        </div>
+
+        <!-- ── Admin callout ── -->
+        <div class="admin-callout" style="margin-top: 3rem;">
+          <div class="admin-callout-body">
+            <strong>Are you a church admin?</strong>
+            <p>Add, manage, or remove updates from the Decap CMS admin area.</p>
+          </div>
+          <a class="btn btn-soft" href="../admin/">Go to Admin</a>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© <span id="year"></span> Montrose Park Bible Church</p>
+        <a href="../index.html">Back to Home</a>
+      </div>
+    </footer>
+
+    <script src="../js/updates.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+      // ── Helpers ──────────────────────────────────────────────────────────
+      function escHtml(str) {
+        return String(str ?? '')
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+          .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+
+      function formatDate(iso) {
+        if (!iso) return '';
+        const [y, m, d] = iso.split('-');
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return `${parseInt(d)} ${months[parseInt(m)-1]} ${y}`;
+      }
+
+      function categoryLabel(cat) {
+        const labels = {
+          announcements: 'Announcements',
+          missions: 'Missions',
+          youth: 'Youth',
+          events: 'Events',
+          other: 'Other',
+        };
+        return labels[cat] || cat;
+      }
+
+      let allUpdates = [];
+
+      // ── Build filter pills from unique categories ─────────────────────────
+      function buildPills(updates) {
+        const pillsContainer = document.getElementById('filterPills');
+        const seen = new Set();
+        const order = [];
+        updates.forEach(u => {
+          if (!seen.has(u.category)) { 
+            seen.add(u.category); 
+            order.push(u.category); 
+          }
+        });
+        // Remove old category pills (keep "All")
+        pillsContainer.querySelectorAll('[data-category]:not([data-category="all"])').forEach(el => el.remove());
+        order.forEach(cat => {
+          const btn = document.createElement('button');
+          btn.className = 'updates-pill';
+          btn.dataset.category = cat;
+          btn.type = 'button';
+          btn.textContent = categoryLabel(cat);
+          pillsContainer.appendChild(btn);
+        });
+      }
+
+      function setActivePill(category) {
+        document.querySelectorAll('.updates-pill').forEach(pill => {
+          pill.classList.toggle('is-active', pill.dataset.category === category);
+        });
+      }
+
+      // ── Render update cards ───────────────────────────────────────────────
+      function renderUpdates(filter = 'all') {
+        buildPills(allUpdates);
+
+        const list = document.getElementById('updatesList');
+        const filtered = filter === 'all' ? allUpdates : allUpdates.filter(u => u.category === filter);
+
+        if (!filtered.length) {
+          list.innerHTML = '<p style="color:var(--text-muted,#6b7280);padding:2rem 0">No updates found in this category.</p>';
+          setActivePill(filter);
+          return;
+        }
+
+        list.innerHTML = filtered.map(u => `
+          <article class="update-card">
+            <div class="update-header">
+              <div>
+                <span class="update-category" data-cat="${escHtml(u.category)}">${escHtml(categoryLabel(u.category))}</span>
+                <h3 class="update-title">${escHtml(u.title)}</h3>
+              </div>
+              <time class="update-date" datetime="${escHtml(u.date)}">${formatDate(u.date)}</time>
+            </div>
+            <p class="update-excerpt">${escHtml(u.excerpt)}</p>
+            <details class="update-details">
+              <summary class="update-summary">Read more</summary>
+              <div class="update-content">
+                ${escHtml(u.content)}
+              </div>
+            </details>
+          </article>
+        `).join('');
+
+        setActivePill(filter);
+      }
+
+      async function initUpdatesPage() {
+        allUpdates = await getUpdates();
+        // Sort by date descending (newest first)
+        allUpdates.sort((a, b) => new Date(b.date) - new Date(a.date));
+        renderUpdates('all');
+      }
+
+      document.getElementById('filterPills').addEventListener('click', event => {
+        const pill = event.target.closest('.updates-pill');
+        if (!pill) return;
+        renderUpdates(pill.dataset.category);
+      });
+
+      // ── Initial render ────────────────────────────────────────────────────
+      initUpdatesPage();
+    </script>
+  </body>
+</html>

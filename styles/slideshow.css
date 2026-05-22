@@ -1,0 +1,312 @@
+.home-slideshow {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: min(78vh, 760px);
+  min-height: 500px;
+  z-index: 1;
+  background: #111;
+}
+
+.home-slideshow .slideshow-inner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home-slideshow .slides {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home-slideshow .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.02);
+  transition: opacity 650ms ease, transform 1200ms ease;
+}
+
+.home-slideshow .slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.home-slideshow .slide .image-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.home-slideshow .slide .image-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.47);
+  z-index: 2;
+}
+
+.home-slideshow .slide .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-slideshow .slide-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  text-align: left;
+}
+
+.home-slideshow .caption {
+  width: min(760px, 90%);
+  margin-left: clamp(1.4rem, 7vw, 7rem);
+  padding: 1.6rem;
+  background: rgba(8, 10, 20, 0.52);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+}
+
+.home-slideshow .title {
+  margin: 0 0 0.7rem;
+  max-width: 1000px;
+  font: 700 clamp(1.6rem, 5vw, 3rem) / 1.18 Inter, "Open Sans", sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-slideshow .text {
+  margin: 0 0 0.9rem;
+  max-width: 760px;
+  font-size: clamp(0.96rem, 2.2vw, 1.12rem);
+  line-height: 1.5;
+}
+
+.home-slideshow .text p {
+  margin: 0;
+}
+
+.home-slideshow .sl-btn {
+  border-radius: 14px;
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.7);
+  font: 600 0.78rem/1.2 Inter, sans-serif;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color 0.1s linear 0.05s, border-color 0.15s ease;
+}
+
+.home-slideshow .sl-btn::before {
+  border-radius: 14px;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #c9a84c;
+  z-index: 1;
+  opacity: 0;
+  transition: height 0.2s ease, top 0.2s ease, opacity 0s linear 0.2s;
+}
+
+.home-slideshow .sl-btn-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.home-slideshow .sl-btn:hover {
+  color: #0c0f1a;
+  border-color: #c9a84c;
+}
+
+.home-slideshow .sl-btn:hover::before {
+  top: 0;
+  height: 100%;
+  opacity: 1;
+  transition: height 0.2s ease, top 0.2s ease, opacity 0s linear 0s;
+}
+
+.home-slideshow .pagination {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  text-align: center;
+}
+
+.home-slideshow .pagination .item {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  display: inline-block;
+  padding: 12px 5px;
+  position: relative;
+  width: 46px;
+  height: 28px;
+  cursor: pointer;
+  margin: 0 2px;
+}
+
+.home-slideshow .pagination .item .icon {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.home-slideshow .pagination .item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  width: 36px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.55);
+  transition: background 0.2s ease;
+}
+
+.home-slideshow .pagination .item::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.26s ease;
+}
+
+.home-slideshow .pagination .item:hover::before,
+.home-slideshow .pagination .item.is-active::before {
+  background: #c9a84c;
+}
+
+.home-slideshow .pagination .item.is-active::after {
+  width: 36px;
+  background: #c9a84c;
+}
+
+.home-slideshow .arrows .arrow {
+  margin-top: -26px;
+  padding: 0.7rem 0.85rem;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  z-index: 4;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(12, 12, 15, 0.25);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1;
+  border-radius: 8px;
+  transition: transform 0.18s ease, background 0.2s ease;
+}
+
+.home-slideshow .arrows .arrow:hover {
+  transform: translateY(-2px);
+  background: rgba(12, 12, 15, 0.5);
+}
+
+.home-slideshow .arrows .prev {
+  left: clamp(0.5rem, 2.6vw, 1.8rem);
+}
+
+.home-slideshow .arrows .next {
+  right: clamp(0.5rem, 2.6vw, 1.8rem);
+}
+
+/* ── Programmes page slideshow variant ── */
+.programmes-slideshow {
+  height: min(46vh, 520px);
+  min-height: 380px;
+}
+
+.slideshow-page-title {
+  position: absolute;
+  bottom: 58px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  padding: 0 clamp(1.4rem, 7vw, 7rem);
+  color: #fff;
+  pointer-events: none;
+}
+
+.slideshow-page-title h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.55);
+}
+
+.slideshow-page-title p {
+  margin: 0.4rem 0 0;
+  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 900px) {
+  .home-slideshow {
+    height: 68vh;
+    min-height: 460px;
+  }
+
+  .home-slideshow .caption {
+    margin-inline: auto;
+  }
+
+  .home-slideshow .slide-content {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-slideshow {
+    min-height: 420px;
+  }
+
+  .home-slideshow .caption {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .home-slideshow .arrows .arrow {
+    font-size: 1.35rem;
+    padding: 0.5rem 0.65rem;
+  }
+}

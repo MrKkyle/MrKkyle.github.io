@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>try{var t=localStorage.getItem('mpbc-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
+    <title>Bible Messages | Montrose Park Bible Church</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a class="brand" href="../index.html">
+          <span class="brand-mark" aria-hidden="true">✝</span>
+          <span class="brand-text">Montrose Park Bible Church</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <div class="nav-dropdown" id="aboutDropdown">
+            <button
+              class="nav-dropdown-toggle"
+              id="aboutDropdownToggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              About us
+            </button>
+            <div class="nav-dropdown-menu" aria-label="About us submenu">
+              <a href="../redirects/about-introduction.html">Introduction</a>
+              <a href="../redirects/about-what-to-expect.html">What to expect</a>
+              <a href="../redirects/about-history.html">History</a>
+              <a href="../redirects/about-what-we-believe.html">What we believe</a>
+              <a href="../redirects/about-video-glimpse.html">Video Glimpse</a>
+            </div>
+          </div>
+          <a href="../redirects/map.html">Map &amp; Directions</a>
+          <a href="bible-messages.html" aria-current="page">Bible Messages</a>
+          <a href="programmes.html">Programmes</a>
+          <a href="contact.html">Contact Us</a>
+          <a class="button-link" href="../redirects/donate.html">Donations</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ── Hero backdrop ── -->
+      <section
+        class="page-backdrop page-backdrop--messages"
+        aria-label="Bible Messages hero"
+      >
+        <div class="container">
+          <div class="page-hero">
+            <h1>Bible Messages</h1>
+            <p class="redirect-meta">
+              Faithful preaching from God's Word — browse our archive of Sunday sermons.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Sermon list ── -->
+      <section class="container page-content">
+
+        <div class="sermon-filter-bar">
+          <span class="sermon-filter-label">Filter by series</span>
+          <div class="sermon-filter-pills" id="filterPills" role="list">
+            <button class="sermon-pill is-active" data-series="all" type="button">All</button>
+          </div>
+        </div>
+
+        <div class="sermon-list" id="sermonList">
+          <!-- Rendered dynamically by sermons.js -->
+        </div>
+
+      </section>
+
+      <!-- ── Admin callout ── -->
+      <section class="container" style="padding-bottom: 3rem;">
+        <div class="admin-callout">
+          <div class="admin-callout-body">
+            <strong>Are you a church admin?</strong>
+            <p>Add, manage, or remove sermon entries from the Decap CMS admin area.</p>
+          </div>
+          <a class="btn btn-soft" href="../admin/">Go to Admin</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© <span id="year"></span> Montrose Park Bible Church</p>
+        <a href="../index.html">Back to Home</a>
+      </div>
+    </footer>
+
+    <script src="../js/sermons.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+      // ── Helpers ──────────────────────────────────────────────────────────
+      function escHtml(str) {
+        return String(str ?? '')
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+          .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+      function formatDate(iso) {
+        if (!iso) return '';
+        const [y, m, d] = iso.split('-');
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return `${parseInt(d)} ${months[parseInt(m)-1]} ${y}`;
+      }
+
+      let allSermons = [];
+
+      // ── Build filter pills from unique series in data ─────────────────────
+      function buildPills(sermons) {
+        const pillsContainer = document.getElementById('filterPills');
+        // Collect unique series in the order they appear
+        const seen  = new Set();
+        const order = [];
+        sermons.forEach(s => {
+          if (!seen.has(s.series)) { seen.add(s.series); order.push({ key: s.series, label: s.seriesLabel }); }
+        });
+        // Remove old series pills (keep "All")
+        pillsContainer.querySelectorAll('[data-series]:not([data-series="all"])').forEach(el => el.remove());
+        order.forEach(({ key, label }) => {
+          const btn = document.createElement('button');
+          btn.className    = 'sermon-pill';
+          btn.dataset.series = key;
+          btn.type         = 'button';
+          btn.textContent  = label;
+          pillsContainer.appendChild(btn);
+        });
+      }
+
+      function setActivePill(series) {
+        document.querySelectorAll('.sermon-pill').forEach(pill => {
+          pill.classList.toggle('is-active', pill.dataset.series === series);
+        });
+      }
+
+      // ── Render sermon cards ───────────────────────────────────────────────
+      function renderSermons(filter = 'all') {
+        buildPills(allSermons);
+
+        const list = document.getElementById('sermonList');
+        const filtered = filter === 'all' ? allSermons : allSermons.filter(s => s.series === filter);
+
+        if (!filtered.length) {
+          list.innerHTML = '<p style="color:var(--text-muted,#6b7280);padding:1rem 0">No sermons found for this series.</p>';
+          setActivePill(filter);
+          return;
+        }
+
+        list.innerHTML = filtered.map(s => `
+          <details class="sermon-card" data-series="${escHtml(s.series)}">
+            <summary class="sermon-summary">
+              <div class="sermon-summary-main">
+                <span class="sermon-series-tag">${escHtml(s.seriesLabel)}</span>
+                <h3 class="sermon-title">${escHtml(s.title)}</h3>
+                <div class="sermon-meta">
+                  <span class="sermon-preacher">${escHtml(s.preacher)}</span>
+                  <span class="sermon-sep" aria-hidden="true">·</span>
+                  <time class="sermon-date" datetime="${escHtml(s.date)}">${formatDate(s.date)}</time>
+                </div>
+              </div>
+              <span class="sermon-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="sermon-body">
+              <div class="sermon-scripture">
+                <span class="sermon-scripture-label">Scripture</span>
+                ${escHtml(s.scripture)}
+              </div>
+              <p>${escHtml(s.description)}</p>
+              <div class="sermon-actions">
+                <a class="btn btn-primary sermon-watch-btn" href="${escHtml(s.downloadUrl)}" target="_blank" rel="noopener">Download Sermon</a>
+              </div>
+            </div>
+          </details>
+        `).join('');
+
+        setActivePill(filter);
+      }
+
+      async function initSermonsPage() {
+        allSermons = await getSermons();
+        renderSermons('all');
+      }
+
+      document.getElementById('filterPills').addEventListener('click', event => {
+        const pill = event.target.closest('.sermon-pill');
+        if (!pill) return;
+        renderSermons(pill.dataset.series);
+      });
+
+      // ── Initial render ────────────────────────────────────────────────────
+      initSermonsPage();
+    </script>
+  </body>
+</html>
