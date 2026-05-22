@@ -1,0 +1,91 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
+  branch: main
+
+publish_mode: editorial_workflow
+media_folder: "media/uploads"
+public_folder: "/media/uploads"
+
+collections:
+  - name: "sermons"
+    label: "Bible Messages"
+    files:
+      - label: "Sermon Archive"
+        name: "sermon-archive"
+        file: "data/sermons.json"
+        format: "json"
+        fields:
+          - label: "Sermons"
+            name: "sermons"
+            widget: "list"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Series"
+                name: "series"
+                widget: "select"
+                options:
+                  - romans
+                  - psalms
+                  - john
+                  - genesis
+                  - standalone
+                  - other
+              - label: "Series label"
+                name: "seriesLabel"
+                widget: "string"
+              - label: "Preacher"
+                name: "preacher"
+                widget: "string"
+              - label: "Date"
+                name: "date"
+                widget: "string"
+                hint: "Use YYYY-MM-DD format"
+              - label: "Scripture"
+                name: "scripture"
+                widget: "string"
+              - label: "Description"
+                name: "description"
+                widget: "text"
+              - label: "Download URL"
+                name: "downloadUrl"
+                widget: "string"
+                required: false
+
+  - name: "updates"
+    label: "Latest Updates"
+    files:
+      - label: "Updates Archive"
+        name: "updates-archive"
+        file: "data/updates.json"
+        format: "json"
+        fields:
+          - label: "Updates"
+            name: "updates"
+            widget: "list"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - announcements
+                  - missions
+                  - youth
+                  - events
+                  - other
+              - label: "Date"
+                name: "date"
+                widget: "string"
+                hint: "Use YYYY-MM-DD format"
+              - label: "Excerpt"
+                name: "excerpt"
+                widget: "text"
+                hint: "Short preview text shown in the list"
+              - label: "Full Content"
+                name: "content"
+                widget: "text"

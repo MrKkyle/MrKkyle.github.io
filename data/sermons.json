@@ -1,0 +1,84 @@
+{
+  "sermons": [
+    {
+      "series": "romans",
+      "seriesLabel": "Romans",
+      "title": "Justified by Faith Alone",
+      "preacher": "Ps. John Dube",
+      "date": "2026-05-17",
+      "scripture": "Romans 3:21–31",
+      "description": "This message explores the doctrine of justification — how a sinful person can be declared righteous before a holy God, not through works or merit, but through faith alone in the atoning work of Jesus Christ. Drawing from Paul's letter to the Romans, we see that God's righteousness is revealed in the gospel and made available to all who believe.",
+      "downloadUrl": "#"
+    },
+    {
+      "series": "psalms",
+      "seriesLabel": "Psalms",
+      "title": "The Lord is My Shepherd",
+      "preacher": "Elder Samuel Nkosi",
+      "date": "2026-05-10",
+      "scripture": "Psalm 23:1–6",
+      "description": "A devotional study of the most beloved Psalm, examining the tender care of God as our divine Shepherd. We consider how the imagery of green pastures, still waters, and the valley of the shadow of death speaks to every season of the Christian life.",
+      "downloadUrl": "#"
+    },
+    {
+      "series": "john",
+      "seriesLabel": "John",
+      "title": "I Am the Resurrection and the Life",
+      "preacher": "Ps. John Dube",
+      "date": "2026-05-03",
+      "scripture": "John 11:17–44",
+      "description": "In this message we study the seventh \"I Am\" statement of Jesus — His declaration that He Himself is the resurrection and the life. Through the account of Lazarus, we see Christ's absolute authority over death and His tender compassion toward those who grieve.",
+      "downloadUrl": "#"
+    },
+    {
+      "series": "romans",
+      "seriesLabel": "Romans",
+      "title": "The Wrath of God Revealed",
+      "preacher": "Elder Samuel Nkosi",
+      "date": "2026-04-26",
+      "scripture": "Romans 1:18–32",
+      "description": "Paul's sobering diagnosis of humanity's moral condition apart from God. This message examines why God's wrath is a necessary expression of His holiness, and why the gospel is the only answer to the problem of human sinfulness.",
+      "downloadUrl": "#"
+    },
+    {
+      "series": "genesis",
+      "seriesLabel": "Genesis",
+      "title": "In the Beginning, God",
+      "preacher": "Ps. John Dube",
+      "date": "2026-04-19",
+      "scripture": "Genesis 1:1–5",
+      "description": "The opening words of Scripture introduce the eternal, self-existent God who creates ex nihilo — out of nothing. This foundational message sets the stage for the whole biblical narrative and answers life's deepest questions: Where did everything come from? Who is in control? And what is our purpose?",
+      "downloadUrl": "#"
+    },
+    {
+      "series": "standalone",
+      "seriesLabel": "Standalone",
+      "title": "Good Friday: It Is Finished",
+      "preacher": "Ps. John Dube",
+      "date": "2026-04-03",
+      "scripture": "John 19:28–30",
+      "description": "A Good Friday meditation on the triumphant cry of Jesus from the cross — \"It is finished.\" Far from a cry of defeat, this single Greek word tetelestai declared that the full debt of sin had been paid, the law perfectly fulfilled, and the way to God completely opened.",
+      "downloadUrl": "#"
+    },
+    {
+      "series": "psalms",
+      "seriesLabel": "Psalms",
+      "title": "Blessed is the Man",
+      "preacher": "Elder Samuel Nkosi",
+      "date": "2026-03-29",
+      "scripture": "Psalm 1:1–6",
+      "description": "An exposition of the gateway psalm — the two paths that every person walks: the way of the righteous, who delights in God's law, and the way of the wicked, who stands under divine judgment. A call to meditate on Scripture day and night.",
+      "downloadUrl": "#"
+    },
+    {
+      "series": "john",
+      "seriesLabel": "John",
+      "title": "You Must Be Born Again",
+      "preacher": "Ps. John Dube",
+      "date": "2026-03-22",
+      "scripture": "John 3:1–21",
+      "description": "Jesus' nighttime conversation with the Pharisee Nicodemus reveals one of the most important truths of the New Testament: spiritual rebirth is not optional — it is essential for entering the Kingdom of God. This message unpacks what it means to be born of water and the Spirit.",
+      "downloadUrl": "#"
+    }
+  ]
+}

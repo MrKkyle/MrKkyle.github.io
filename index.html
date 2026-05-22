@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>try{var t=localStorage.getItem('mpbc-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
+    <title>Montrose Park Bible Church</title>
+    <meta
+      name="description"
+      content="Montrose Park Bible Church - worship, fellowship, Bible teaching, and community programmes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/slideshow.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a class="brand" href="index.html" aria-label="Montrose Park Bible Church home">
+          <span class="brand-mark" aria-hidden="true">✝</span>
+          <span class="brand-text">Montrose Park Bible Church</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+          <div class="nav-dropdown" id="aboutDropdown">
+            <button
+              class="nav-dropdown-toggle"
+              id="aboutDropdownToggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              About us
+            </button>
+            <div class="nav-dropdown-menu" aria-label="About us submenu">
+              <a href="redirects/about-introduction.html">Introduction</a>
+              <a href="redirects/about-what-to-expect.html">What to expect</a>
+              <a href="redirects/about-history.html">History</a>
+              <a href="redirects/about-what-we-believe.html">What we believe</a>
+              <a href="redirects/about-video-glimpse.html">Video Glimpse</a>
+            </div>
+          </div>
+          <a href="redirects/map.html">Map & Directions</a>
+          <a href="pages/bible-messages.html">Bible Messages</a>
+          <a href="pages/programmes.html">Programmes</a>
+          <a href="pages/contact.html">Contact Us</a>
+          <a class="button-link" href="redirects/donate.html">Donations</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="home-slideshow" aria-label="Welcome slideshow">
+        <div class="slideshow-inner">
+          <div class="slides">
+            <article class="slide is-active" data-index="0">
+              <div class="slide-content">
+                <div class="caption">
+                  <h1 class="title">Welcome to Montrose Park Bible Church</h1>
+                  <div class="text">
+                    <p>
+                      A Christ-centered church family growing in worship, prayer, Scripture, and mission.
+                    </p>
+                  </div>
+                  <a href="pages/about.html" class="sl-btn">
+                    <span class="sl-btn-inner">Learn More</span>
+                  </a>
+                </div>
+              </div>
+              <div class="image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1800&q=80"
+                  alt="Church worship gathering"
+                  class="image"
+                />
+              </div>
+            </article>
+
+            <article class="slide" data-index="1">
+              <div class="slide-content">
+                <div class="caption">
+                  <h2 class="title">Bible Teaching and Discipleship</h2>
+                  <div class="text">
+                    <p>
+                      Join our weekly Bible messages and grow deeper in faith.
+                    </p>
+                  </div>
+                  <a href="pages/bible-messages.html" class="sl-btn">
+                    <span class="sl-btn-inner">Watch Messages</span>
+                  </a>
+                </div>
+              </div>
+              <div class="image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1800&q=80"
+                  alt="People praying together"
+                  class="image"
+                />
+              </div>
+            </article>
+
+            <article class="slide" data-index="2">
+              <div class="slide-content">
+                <div class="caption">
+                  <h2 class="title">A Place for the Whole Family</h2>
+                  <div class="text">
+                    <p>
+                      Sunday worship, youth ministry, and small groups for every stage of life.
+                    </p>
+                  </div>
+                  <a href="pages/programmes.html" class="sl-btn">
+                    <span class="sl-btn-inner">View Programmes</span>
+                  </a>
+                </div>
+              </div>
+              <div class="image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1800&q=80"
+                  alt="Church fellowship group"
+                  class="image"
+                />
+              </div>
+            </article>
+
+            <article class="slide" data-index="3">
+              <div class="slide-content">
+                <div class="caption">
+                  <h2 class="title">Plan Your Visit This Sunday</h2>
+                  <div class="text">
+                    <p>
+                      Find our location, service times, and contact details.
+                    </p>
+                  </div>
+                  <a href="pages/contact.html" class="sl-btn">
+                    <span class="sl-btn-inner">Plan a Visit</span>
+                  </a>
+                </div>
+              </div>
+              <div class="image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1462030411771-6306ae8db272?auto=format&fit=crop&w=1800&q=80"
+                  alt="Church building"
+                  class="image"
+                />
+              </div>
+            </article>
+          </div>
+
+          <div class="pagination" aria-label="Slideshow pagination">
+            <button class="item is-active" type="button" data-slide="0" aria-label="Go to slide 1">
+              <span class="icon">1</span>
+            </button>
+            <button class="item" type="button" data-slide="1" aria-label="Go to slide 2">
+              <span class="icon">2</span>
+            </button>
+            <button class="item" type="button" data-slide="2" aria-label="Go to slide 3">
+              <span class="icon">3</span>
+            </button>
+            <button class="item" type="button" data-slide="3" aria-label="Go to slide 4">
+              <span class="icon">4</span>
+            </button>
+          </div>
+
+          <div class="arrows" aria-label="Slideshow navigation">
+            <button class="arrow prev" type="button" aria-label="Previous slide">‹</button>
+            <button class="arrow next" type="button" aria-label="Next slide">›</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container">
+        <div class="section-head">
+          <h2>Quick Access</h2>
+          <p>Use these shortcuts to access important church resources.</p>
+        </div>
+        <div class="quick-grid">
+          <a class="quick-item" href="redirects/map.html">
+            <h3>Map and Directions</h3>
+            <p>Get directions to our church location.</p>
+          </a>
+          <a class="quick-item" href="redirects/latest-updates.html">
+            <h3>Latest Updates</h3>
+            <p>Read church news, announcements, and upcoming events.</p>
+          </a>
+          <a class="quick-item" href="redirects/statement-of-faith.html">
+            <h3>Statement of Faith</h3>
+            <p>Learn what we believe from Scripture and core doctrine.</p>
+          </a>
+          <a class="quick-item" href="pages/bible-messages.html">
+            <h3>Bible Messages</h3>
+            <p>Watch and listen to sermon recordings.</p>
+          </a>
+          <a class="quick-item" href="redirects/donate.html">
+            <h3>Give Online</h3>
+            <p>Support missions and ministries securely.</p>
+          </a>
+          <a class="quick-item" href="redirects/contact-email.html">
+            <h3>Email Us</h3>
+            <p>Reach out with prayer requests and questions.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Church Life</h2>
+            <p>A few key ministries to highlight in Montrose Park Bible Church.</p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="feature-card">
+              <img
+                src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=1200&q=80"
+                alt="Church building exterior"
+              />
+              <div class="card-body">
+                <h3>Sunday Worship</h3>
+                <p>Join us each Sunday for worship, prayer, and faithful preaching.</p>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <img
+                src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1200&q=80"
+                alt="People praying together"
+              />
+              <div class="card-body">
+                <h3>Prayer Meetings</h3>
+                <p>Weekly prayer gatherings for the church, city, and global missions.</p>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <img
+                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=80"
+                alt="Bible study group"
+              />
+              <div class="card-body">
+                <h3>Small Groups</h3>
+                <p>Grow in the Word through fellowship available across all age groups.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© <span id="year"></span> Montrose Park Bible Church</p>
+        <a href="redirects/index.html">All Redirect Links</a>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/slideshow.js"></script>
+  </body>
+</html>
