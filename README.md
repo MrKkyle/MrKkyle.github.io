@@ -8,7 +8,7 @@ Static church website built with plain **HTML**, **CSS**, and **JavaScript**, no
 - `styles/main.css` – shared responsive styling and visual theme
 - `js/main.js` – mobile menu and footer year
 - `pages/*.html` – content pages, including the Bible Messages archive
-- `redirects/*.html` + `js/redirect.js` – reusable redirect pages with fallback links
+- `pages/map-directions.html` – location, address details, and embedded Google Map
 - `data/sermons.json` – Git-backed sermon archive used by the Bible Messages page
 - `admin/` – Decap CMS admin entry and configuration
 
@@ -35,4 +35,4 @@ Then open: `http://localhost:8080`
 1. Connect the repo to GitHub and deploy it on Netlify or GitHub Pages.
 2. Configure Decap CMS authentication for the repository.
 3. Add more collections later for `latest-updates`, `about` pages, or events.
-4. Replace the remaining placeholder redirect URLs in `redirects/*.html`.
+4. Replace placeholder contact and donation details with your final church information.
