@@ -71,6 +71,8 @@
           <!-- Rendered dynamically by updates.js -->
         </div>
 
+        <nav class="sermon-pagination" id="updatesPagination" aria-label="Updates pagination"></nav>
+
         <!-- ── Admin callout ── -->
         <div class="admin-callout" style="margin-top: 3rem;">
           <div class="admin-callout-body">
@@ -119,6 +121,9 @@
       }
 
       let allUpdates = [];
+      const UPDATES_PER_PAGE = 10;
+      let currentPage = 1;
+      let currentFilter = 'all';
 
       // ── Build filter pills from unique categories ─────────────────────────
       function buildPills(updates) {
@@ -150,19 +155,25 @@
       }
 
       // ── Render update cards ───────────────────────────────────────────────
-      function renderUpdates(filter = 'all') {
+      function renderUpdates() {
         buildPills(allUpdates);
+        setActivePill(currentFilter);
 
         const list = document.getElementById('updatesList');
-        const filtered = filter === 'all' ? allUpdates : allUpdates.filter(u => u.category === filter);
+        const filtered = currentFilter === 'all' ? allUpdates : allUpdates.filter(u => u.category === currentFilter);
 
         if (!filtered.length) {
           list.innerHTML = '<p style="color:var(--text-muted,#6b7280);padding:2rem 0">No updates found in this category.</p>';
-          setActivePill(filter);
+          renderPagination(0);
           return;
         }
 
-        list.innerHTML = filtered.map(u => `
+        const totalPages = Math.ceil(filtered.length / UPDATES_PER_PAGE);
+        if (currentPage > totalPages) currentPage = totalPages;
+        const start = (currentPage - 1) * UPDATES_PER_PAGE;
+        const pageUpdates = filtered.slice(start, start + UPDATES_PER_PAGE);
+
+        list.innerHTML = pageUpdates.map(u => `
           <article class="update-card">
             <div class="update-header">
               <div>
@@ -181,20 +192,44 @@
           </article>
         `).join('');
 
-        setActivePill(filter);
+        renderPagination(totalPages);
+      }
+
+      // ── Render pagination controls ────────────────────────────────────────
+      function renderPagination(totalPages) {
+        const nav = document.getElementById('updatesPagination');
+        if (totalPages <= 1) { nav.innerHTML = ''; return; }
+
+        const items = [];
+        items.push(`<button class="sermon-page-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''} aria-label="Previous page">&#8592;</button>`);
+        for (let i = 1; i <= totalPages; i++) {
+          items.push(`<button class="sermon-page-btn ${i === currentPage ? 'is-active' : ''}" data-page="${i}" aria-label="Page ${i}" aria-current="${i === currentPage ? 'page' : 'false'}">${i}</button>`);
+        }
+        items.push(`<button class="sermon-page-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? 'disabled' : ''} aria-label="Next page">&#8594;</button>`);
+        nav.innerHTML = items.join('');
       }
 
       async function initUpdatesPage() {
         allUpdates = await getUpdates();
         // Sort by date descending (newest first)
         allUpdates.sort((a, b) => new Date(b.date) - new Date(a.date));
-        renderUpdates('all');
+        renderUpdates();
       }
 
       document.getElementById('filterPills').addEventListener('click', event => {
         const pill = event.target.closest('.updates-pill');
         if (!pill) return;
-        renderUpdates(pill.dataset.category);
+        currentFilter = pill.dataset.category;
+        currentPage = 1;
+        renderUpdates();
+      });
+
+      document.getElementById('updatesPagination').addEventListener('click', event => {
+        const btn = event.target.closest('.sermon-page-btn');
+        if (!btn || btn.disabled) return;
+        currentPage = parseInt(btn.dataset.page);
+        renderUpdates();
+        document.getElementById('updatesList').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
 
       // ── Initial render ────────────────────────────────────────────────────

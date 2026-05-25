@@ -673,6 +673,74 @@ a {
   display: block;
 }
 
+/* ── Sermon search bar ── */
+.sermon-search-bar {
+  margin-bottom: 1rem;
+}
+
+.sermon-search-input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--line-solid);
+  border-radius: 999px;
+  background: var(--glass-bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.sermon-search-input::placeholder {
+  color: var(--muted);
+}
+
+.sermon-search-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 20%, transparent);
+}
+
+/* ── Sermon pagination ── */
+.sermon-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.sermon-page-btn {
+  appearance: none;
+  border: 1px solid var(--line-solid);
+  background: var(--btn-soft-bg);
+  color: var(--muted);
+  border-radius: 8px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  min-width: 2.25rem;
+}
+
+.sermon-page-btn:hover:not(:disabled) {
+  border-color: var(--gold);
+  color: var(--text);
+}
+
+.sermon-page-btn.is-active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--btn-primary-fg);
+}
+
+.sermon-page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
 /* ── Sermon filter bar ── */
 .sermon-filter-bar {
   display: flex;
