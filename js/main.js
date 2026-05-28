@@ -110,3 +110,99 @@ function injectToggleButtons() {
   // Re-apply so the injected buttons get the right icon straight away.
   applyTheme(theme);
 })();
+
+/* ── Scroll reveal animations ── */
+function initRevealAnimations() {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const revealGroups = [
+    { selector: "main > section", reveal: "fade", stagger: 80 },
+    { selector: ".section-head", reveal: "up", stagger: 90 },
+    { selector: ".quick-item", reveal: "up", stagger: 70 },
+    { selector: ".feature-card", reveal: "up", stagger: 80 },
+    { selector: ".page-box", reveal: "up", stagger: 90 },
+    { selector: ".faq-item", reveal: "up", stagger: 55 },
+    { selector: ".sermon-card", reveal: "up", stagger: 45 },
+    { selector: ".update-card", reveal: "up", stagger: 45 },
+    { selector: ".parallax-card", reveal: "fade", stagger: 120 },
+    { selector: ".map-page-grid .page-box", reveal: "up", stagger: 100 },
+    { selector: ".admin-callout", reveal: "fade", stagger: 0 },
+    { selector: ".redirect-card", reveal: "up", stagger: 0 }
+  ];
+
+  const candidates = new Set();
+  revealGroups.forEach((group) => {
+    const nodes = document.querySelectorAll(group.selector);
+    nodes.forEach((element, index) => {
+      if (!element.hasAttribute("data-reveal")) {
+        element.setAttribute("data-reveal", group.reveal);
+      }
+      if (!element.style.getPropertyValue("--reveal-delay") && group.stagger > 0) {
+        element.style.setProperty("--reveal-delay", `${index * group.stagger}ms`);
+      }
+      candidates.add(element);
+    });
+  });
+
+  if (reducedMotion) {
+    candidates.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.16,
+      rootMargin: "0px 0px -8% 0px"
+    }
+  );
+
+  const observeElement = (element) => {
+    if (!element || element.classList.contains("is-visible")) {
+      return;
+    }
+    observer.observe(element);
+  };
+
+  candidates.forEach(observeElement);
+
+  const dynamicSelectors = [".sermon-card", ".update-card"];
+  const mutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (!(node instanceof Element)) {
+          return;
+        }
+
+        dynamicSelectors.forEach((selector) => {
+          const dynamicNodes = node.matches(selector)
+            ? [node]
+            : Array.from(node.querySelectorAll(selector));
+
+          dynamicNodes.forEach((element, index) => {
+            if (!element.hasAttribute("data-reveal")) {
+              element.setAttribute("data-reveal", "up");
+            }
+
+            if (!element.style.getPropertyValue("--reveal-delay")) {
+              element.style.setProperty("--reveal-delay", `${Math.min(index, 7) * 45}ms`);
+            }
+
+            observeElement(element);
+          });
+        });
+      });
+    });
+  });
+
+  mutationObserver.observe(document.body, { childList: true, subtree: true });
+}
+
+initRevealAnimations();
