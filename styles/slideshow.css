@@ -77,9 +77,9 @@
 }
 
 .home-slideshow .caption {
-  width: min(760px, 90%);
-  margin-left: clamp(1.4rem, 7vw, 7rem);
-  padding: 1.6rem;
+  width: min(660px, 84%);
+  margin-left: clamp(1rem, 5vw, 5rem);
+  padding: 1.3rem 1.35rem;
   background: rgba(8, 10, 20, 0.52);
   border: 1px solid rgba(201, 168, 76, 0.28);
   border-radius: 14px;
@@ -108,7 +108,7 @@
 .home-slideshow .title {
   margin: 0 0 0.7rem;
   max-width: 1000px;
-  font: 700 clamp(1.6rem, 5vw, 3rem) / 1.18 Inter, "Open Sans", sans-serif;
+  font: 700 clamp(1.6rem, 5vw, 2.3rem) / 1.18 Inter, "Open Sans", sans-serif;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -317,6 +317,8 @@
   }
 
   .home-slideshow .caption {
+    width: min(600px, 82%);
+    padding: 1.1rem 1.2rem;
     margin-inline: auto;
   }
 
@@ -331,7 +333,8 @@
   }
 
   .home-slideshow .caption {
-    padding: 1rem;
+    width: min(500px, 88%);
+    padding: 0.9rem 0.95rem;
     border-radius: 10px;
   }
 

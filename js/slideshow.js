@@ -5,34 +5,6 @@
     return;
   }
 
-  // Update this list to control which 13 images are eligible for random slideshow selection.
-  const homeSlideshowImagePool = [
-    '/media/content-media/Church-main-image.jpg',
-    '/media/content-media/Church-full-m.jpg',
-    '/media/content-media/Church-full.jpg',
-    '/media/content-media/Church-view-2.jpg',
-    '/media/content-media/Preaching.jpg',
-    '/media/content-media/Sunday-School-banner.jpg',
-    '/media/content-media/SundaySchool-main.JPG',
-    '/media/content-media/SundaySchool-outdoor-1.jpg',
-    '/media/content-media/Youth-main.JPG',
-    '/media/content-media/Ladies-main.JPG',
-    '/media/content-media/Ladies-banner.jpg',
-    '/media/content-media/Youth-cozy-90s.jpg',
-    '/media/content-media/Ladies-Mens-Fellowshio.jpg',
-  ];
-
-  const uniqueImagePool = Array.from(new Set(homeSlideshowImagePool));
-
-  const shuffle = (items) => {
-    const copy = [...items];
-    for (let i = copy.length - 1; i > 0; i -= 1) {
-      const randomIndex = Math.floor(Math.random() * (i + 1));
-      [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
-    }
-    return copy;
-  };
-
   const slides = Array.from(slideshow.querySelectorAll('.slide'));
   const paginationItems = Array.from(slideshow.querySelectorAll('.pagination .item'));
   const prevButton = slideshow.querySelector('.arrow.prev');
@@ -42,21 +14,7 @@
     return;
   }
 
-  if (uniqueImagePool.length < 13) {
-    console.warn('Slideshow image pool must contain 13 unique image paths.');
-  }
-
-  if (uniqueImagePool.length >= slides.length) {
-    const randomizedImages = shuffle(uniqueImagePool).slice(0, slides.length);
-    slides.forEach((slide, index) => {
-      const image = slide.querySelector('.image-container .image');
-      if (image && randomizedImages[index]) {
-        image.src = randomizedImages[index];
-      }
-    });
-  }
-
-  const defaultIntervalMs = 7000;
+  const defaultIntervalMs = 5000;
   const parsedIntervalMs = Number(slideshow.dataset.autoplayInterval);
   const intervalMs = Number.isFinite(parsedIntervalMs) && parsedIntervalMs > 0
     ? parsedIntervalMs
@@ -67,8 +25,6 @@
   const initialDelayMs = Number.isFinite(parsedInitialDelayMs) && parsedInitialDelayMs >= 0
     ? parsedInitialDelayMs
     : intervalMs;
-  const randomStart = slideshow.dataset.randomStart === 'true';
-
   const setCaptionVisibility = (slide, isVisible) => {
     const caption = slide?.querySelector('.caption');
     if (!caption) {
@@ -81,21 +37,13 @@
   };
 
   // Determine starting slide
-  let currentIndex;
-  if (randomStart) {
-    currentIndex = Math.floor(Math.random() * slides.length);
-    // Clear any existing is-active and set the random one
-    slides.forEach((slide) => slide.classList.remove('is-active'));
-    slides[currentIndex].classList.add('is-active');
-  } else {
-    currentIndex = Math.max(
-      0,
-      slides.findIndex((slide) => slide.classList.contains('is-active'))
-    );
-    if (currentIndex === -1) {
-      currentIndex = 0;
-      slides[0].classList.add('is-active');
-    }
+  let currentIndex = Math.max(
+    0,
+    slides.findIndex((slide) => slide.classList.contains('is-active'))
+  );
+  if (currentIndex === -1) {
+    currentIndex = 0;
+    slides[0].classList.add('is-active');
   }
 
   slides.forEach((slide, index) => {
