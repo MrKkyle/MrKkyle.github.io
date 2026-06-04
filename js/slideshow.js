@@ -5,6 +5,34 @@
     return;
   }
 
+  // Update this list to control which 13 images are eligible for random slideshow selection.
+  const homeSlideshowImagePool = [
+    '/media/content-media/Church-main-image.jpg',
+    '/media/content-media/Church-full-m.jpg',
+    '/media/content-media/Church-full.jpg',
+    '/media/content-media/Church-view-2.jpg',
+    '/media/content-media/Preaching.jpg',
+    '/media/content-media/Sunday-School-banner.jpg',
+    '/media/content-media/SundaySchool-main.JPG',
+    '/media/content-media/SundaySchool-outdoor-1.jpg',
+    '/media/content-media/Youth-main.JPG',
+    '/media/content-media/Ladies-main.JPG',
+    '/media/content-media/Ladies-banner.jpg',
+    '/media/content-media/Youth-cozy-90s.jpg',
+    '/media/content-media/Ladies-Mens-Fellowshio.jpg',
+  ];
+
+  const uniqueImagePool = Array.from(new Set(homeSlideshowImagePool));
+
+  const shuffle = (items) => {
+    const copy = [...items];
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
+    }
+    return copy;
+  };
+
   const slides = Array.from(slideshow.querySelectorAll('.slide'));
   const paginationItems = Array.from(slideshow.querySelectorAll('.pagination .item'));
   const prevButton = slideshow.querySelector('.arrow.prev');
@@ -14,28 +42,77 @@
     return;
   }
 
-  const defaultIntervalMs = 5000;
+  if (uniqueImagePool.length < 13) {
+    console.warn('Slideshow image pool must contain 13 unique image paths.');
+  }
+
+  if (uniqueImagePool.length >= slides.length) {
+    const randomizedImages = shuffle(uniqueImagePool).slice(0, slides.length);
+    slides.forEach((slide, index) => {
+      const image = slide.querySelector('.image-container .image');
+      if (image && randomizedImages[index]) {
+        image.src = randomizedImages[index];
+      }
+    });
+  }
+
+  const defaultIntervalMs = 7000;
   const parsedIntervalMs = Number(slideshow.dataset.autoplayInterval);
   const intervalMs = Number.isFinite(parsedIntervalMs) && parsedIntervalMs > 0
     ? parsedIntervalMs
     : defaultIntervalMs;
+  const captionFadeDurationMs = 520;
+  const captionOnlyImageHoldMs = 2000;
   const parsedInitialDelayMs = Number(slideshow.dataset.autoplayInitialDelay);
   const initialDelayMs = Number.isFinite(parsedInitialDelayMs) && parsedInitialDelayMs >= 0
     ? parsedInitialDelayMs
     : intervalMs;
+  const randomStart = slideshow.dataset.randomStart === 'true';
 
-  let currentIndex = Math.max(
-    0,
-    slides.findIndex((slide) => slide.classList.contains('is-active'))
-  );
+  const setCaptionVisibility = (slide, isVisible) => {
+    const caption = slide?.querySelector('.caption');
+    if (!caption) {
+      return;
+    }
 
-  if (currentIndex === -1) {
-    currentIndex = 0;
-    slides[0].classList.add('is-active');
+    caption.style.transition = `opacity ${captionFadeDurationMs}ms ease, transform ${captionFadeDurationMs}ms ease`;
+    caption.style.opacity = isVisible ? '1' : '0';
+    caption.style.transform = isVisible ? 'translate3d(0, 0, 0)' : 'translate3d(0, 12px, 0)';
+  };
+
+  // Determine starting slide
+  let currentIndex;
+  if (randomStart) {
+    currentIndex = Math.floor(Math.random() * slides.length);
+    // Clear any existing is-active and set the random one
+    slides.forEach((slide) => slide.classList.remove('is-active'));
+    slides[currentIndex].classList.add('is-active');
+  } else {
+    currentIndex = Math.max(
+      0,
+      slides.findIndex((slide) => slide.classList.contains('is-active'))
+    );
+    if (currentIndex === -1) {
+      currentIndex = 0;
+      slides[0].classList.add('is-active');
+    }
   }
 
+  slides.forEach((slide, index) => {
+    setCaptionVisibility(slide, index === currentIndex);
+  });
+
   let autoplayTimer;
+  let autoplayCaptionFadeTimer;
   let autoplayStartTimer;
+  let isTransitioning = false;
+
+  const syncPagination = (activeIndex) => {
+    paginationItems.forEach((item, index) => {
+      item.classList.toggle('is-active', index === activeIndex);
+      item.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
+    });
+  };
 
   const setActiveSlide = (nextIndex) => {
     if (nextIndex < 0 || nextIndex >= slides.length || nextIndex === currentIndex) {
@@ -45,74 +122,126 @@
     slides[currentIndex].classList.remove('is-active');
     slides[nextIndex].classList.add('is-active');
 
-    paginationItems.forEach((item, index) => {
-      item.classList.toggle('is-active', index === nextIndex);
-      item.setAttribute('aria-current', index === nextIndex ? 'true' : 'false');
-    });
+    syncPagination(nextIndex);
 
     currentIndex = nextIndex;
   };
 
+  const transitionToSlide = (nextIndex, options = {}) => {
+    const { outgoingAlreadyHidden = false } = options;
+
+    if (isTransitioning || nextIndex < 0 || nextIndex >= slides.length || nextIndex === currentIndex) {
+      return;
+    }
+
+    isTransitioning = true;
+    const activeSlide = slides[currentIndex];
+    const incomingSlide = slides[nextIndex];
+
+    const completeTransition = () => {
+      setCaptionVisibility(incomingSlide, false);
+      setActiveSlide(nextIndex);
+      window.requestAnimationFrame(() => {
+        setCaptionVisibility(incomingSlide, true);
+        isTransitioning = false;
+        scheduleAutoplayCycle();
+      });
+    };
+
+    if (outgoingAlreadyHidden) {
+      completeTransition();
+      return;
+    }
+
+    setCaptionVisibility(activeSlide, false);
+    window.setTimeout(completeTransition, captionFadeDurationMs);
+  };
+
   const goNext = () => {
     const nextIndex = (currentIndex + 1) % slides.length;
-    setActiveSlide(nextIndex);
+    transitionToSlide(nextIndex);
   };
 
   const goPrev = () => {
     const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-    setActiveSlide(prevIndex);
+    transitionToSlide(prevIndex);
+  };
+
+  const clearAutoplayTimers = () => {
+    window.clearTimeout(autoplayStartTimer);
+    window.clearTimeout(autoplayCaptionFadeTimer);
+    window.clearTimeout(autoplayTimer);
+  };
+
+  const scheduleAutoplayCycle = () => {
+    clearAutoplayTimers();
+
+    const fadeOutLeadMs = Math.max(0, intervalMs - captionFadeDurationMs - captionOnlyImageHoldMs);
+    const switchDelayMs = fadeOutLeadMs + captionFadeDurationMs + captionOnlyImageHoldMs;
+
+    autoplayCaptionFadeTimer = window.setTimeout(() => {
+      if (isTransitioning) {
+        return;
+      }
+      setCaptionVisibility(slides[currentIndex], false);
+    }, fadeOutLeadMs);
+
+    autoplayTimer = window.setTimeout(() => {
+      if (isTransitioning) {
+        return;
+      }
+      const nextIndex = (currentIndex + 1) % slides.length;
+      transitionToSlide(nextIndex, { outgoingAlreadyHidden: true });
+    }, switchDelayMs);
   };
 
   const restartAutoplay = () => {
-    window.clearTimeout(autoplayStartTimer);
-    window.clearInterval(autoplayTimer);
-    autoplayTimer = window.setInterval(goNext, intervalMs);
+    setCaptionVisibility(slides[currentIndex], true);
+    scheduleAutoplayCycle();
   };
 
   const startAutoplay = () => {
-    window.clearTimeout(autoplayStartTimer);
-    window.clearInterval(autoplayTimer);
+    clearAutoplayTimers();
 
     if (initialDelayMs === 0) {
-      goNext();
-      autoplayTimer = window.setInterval(goNext, intervalMs);
+      scheduleAutoplayCycle();
       return;
     }
 
     autoplayStartTimer = window.setTimeout(() => {
-      goNext();
-      autoplayTimer = window.setInterval(goNext, intervalMs);
+      scheduleAutoplayCycle();
     }, initialDelayMs);
   };
 
   nextButton?.addEventListener('click', () => {
     goNext();
-    restartAutoplay();
   });
 
   prevButton?.addEventListener('click', () => {
     goPrev();
-    restartAutoplay();
   });
 
   paginationItems.forEach((item) => {
     item.addEventListener('click', () => {
       const index = Number(item.dataset.slide);
       if (!Number.isNaN(index)) {
-        setActiveSlide(index);
-        restartAutoplay();
+        if (index === currentIndex) {
+          restartAutoplay();
+          return;
+        }
+        transitionToSlide(index);
       }
     });
   });
 
   slideshow.addEventListener('mouseenter', () => {
-    window.clearTimeout(autoplayStartTimer);
-    window.clearInterval(autoplayTimer);
+    clearAutoplayTimers();
   });
 
   slideshow.addEventListener('mouseleave', () => {
     restartAutoplay();
   });
 
+  syncPagination(currentIndex);
   startAutoplay();
 })();

@@ -206,3 +206,19 @@ function initRevealAnimations() {
 }
 
 initRevealAnimations();
+
+/* ── Smooth page transitions ── */
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("a[href]");
+  if (!link || link.target === "_blank" || link.href.startsWith("mailto:") || link.href.startsWith("tel:") || link.origin !== location.origin) return;
+  e.preventDefault();
+  document.body.classList.add("is-navigating");
+  setTimeout(() => { window.location.href = link.href; }, 180);
+});
+
+/* ── Remove image shimmer once loaded ── */
+document.querySelectorAll(".feature-card img, .slide .image").forEach((img) => {
+  const markLoaded = () => img.setAttribute("complete", "");
+  if (img.complete) markLoaded();
+  else img.addEventListener("load", markLoaded);
+});
