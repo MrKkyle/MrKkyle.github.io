@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>try{var t=localStorage.getItem('mpbc-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
     <title>Programmes | Montrose Park Bible Church</title>
+    <link rel="icon" href="../media/logos/main.jpeg" type="image/jpeg" />
+    <script>(function(){var img=new Image();img.crossOrigin='anonymous';img.onload=function(){var s=64,c=document.createElement('canvas');c.width=c.height=s;var ctx=c.getContext('2d');ctx.beginPath();ctx.arc(s/2,s/2,s/2,0,Math.PI*2);ctx.closePath();ctx.clip();ctx.drawImage(img,0,0,s,s);var link=document.querySelector('link[rel="icon"]');if(!link){link=document.createElement('link');link.rel='icon';document.head.appendChild(link);}link.href=c.toDataURL('image/png');};img.src='../media/logos/main.jpeg';})();</script>
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/slideshow.css" />
   </head>
@@ -34,9 +36,7 @@
             <div class="nav-dropdown-menu" aria-label="About us submenu">
               <a href="about-introduction.html">Introduction</a>
               <a href="about-what-to-expect.html">What to expect</a>
-              <a href="about-history.html">History</a>
               <a href="about-what-we-believe.html">What we believe</a>
-              <a href="about-church-leadership.html">Church leadership</a>
             </div>
           </div>
           <a href="map-directions.html">Map & Directions</a>
@@ -51,17 +51,20 @@
       <section
         class="home-slideshow programmes-slideshow"
         aria-label="Programmes slideshow"
+        data-autoplay-interval="3500"
         data-autoplay-initial-delay="1200"
+        data-random-start="true"
       >
         <div class="slideshow-inner">
           <div class="slides">
-            <article class="slide is-active" data-index="0">
+            <article class="slide" data-index="0">
               <div class="slide-content"></div>
               <div class="image-container">
                 <img
-                  src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1800&q=80"
+                  src="../media/content-media/Youth-cozy-90s.jpg"
                   alt="Youth Ministry"
                   class="image"
+                  style="object-position: center 30%;"
                 />
               </div>
             </article>
@@ -70,9 +73,10 @@
               <div class="slide-content"></div>
               <div class="image-container">
                 <img
-                  src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=1800&q=80"
+                  src="../media/content-media/SundaySchool-main.JPG"
                   alt="Sunday School"
                   class="image"
+                  style="object-position: center 25%;"
                 />
               </div>
             </article>
@@ -81,9 +85,10 @@
               <div class="slide-content"></div>
               <div class="image-container">
                 <img
-                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1800&q=80"
+                  src="../media/content-media/Ladies-main.JPG"
                   alt="Ladies Ministry"
                   class="image"
+                  style="object-position: center 20%;"
                 />
               </div>
             </article>
@@ -92,20 +97,10 @@
               <div class="slide-content"></div>
               <div class="image-container">
                 <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=80"
+                  src="../media/content-media/Mens-group.jpg"
                   alt="Men's Ministry"
                   class="image"
-                />
-              </div>
-            </article>
-
-            <article class="slide" data-index="4">
-              <div class="slide-content"></div>
-              <div class="image-container">
-                <img
-                  src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1800&q=80"
-                  alt="Midweek Bible Study"
-                  class="image"
+                  style="object-position: center 35%;"
                 />
               </div>
             </article>
@@ -120,35 +115,38 @@
       </section>
 
       <section class="container page-content">
-        <div class="cards-grid programme-grid">
-          <article class="feature-card">
-            <div class="card-body">
-              <h3>Sunday School</h3>
-              <p>Bible teaching classes for children and youth.</p>
-              <a class="card-link" href="sunday-school.html">Read more →</a>
-            </div>
-          </article>
 
-          <article class="feature-card">
-            <div class="card-body">
-              <h3>Midweek Bible Study</h3>
-              <p>Small group teaching and prayer every week.</p>
-              <a class="card-link" href="bible-study.html">Read more →</a>
-            </div>
-          </article>
+        <div class="sermon-search-bar" style="margin-bottom:1.5rem;">
+          <div class="sermon-search-wrap" id="programmeSearchWrap">
+            <button
+              class="sermon-search-toggle"
+              id="programmeSearchToggle"
+              type="button"
+              aria-label="Toggle search"
+              aria-expanded="false"
+              aria-controls="programmeSearch"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </button>
+            <input
+              type="search"
+              id="programmeSearch"
+              class="sermon-search-input"
+              placeholder="Search programmes…"
+              aria-label="Search programmes"
+              tabindex="-1"
+            />
+          </div>
+        </div>
 
-          <article class="feature-card">
-            <div class="card-body">
-              <h3>Youth Ministry</h3>
-              <p>Faith formation, worship, and fellowship for teens and young adults.</p>
-              <a class="card-link" href="youth-ministry.html">Read more →</a>
-            </div>
-          </article>
-
+        <div class="cards-grid programme-grid" id="programmeGrid">
           <article class="feature-card">
             <div class="card-body">
               <h3>Men Ministry</h3>
-              <p>Brotherhood gatherings, Bible study, mentoring, and practical service.</p>
+              <p>Gatherings that feature Bible study, mentoring, and practical application of scripture.</p>
               <a class="card-link" href="men-ministry.html">Read more →</a>
             </div>
           </article>
@@ -156,8 +154,24 @@
           <article class="feature-card">
             <div class="card-body">
               <h3>Ladies Ministry</h3>
-              <p>Women’s discipleship, prayer support, encouragement, and outreach.</p>
+              <p>Women's discipleship, prayer support and encouragement</p>
               <a class="card-link" href="ladies-ministry.html">Read more →</a>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="card-body">
+              <h3>Youth Ministry</h3>
+              <p>Faith formation, worship, and fellowship for teenagers and young adults.</p>
+              <a class="card-link" href="youth-ministry.html">Read more →</a>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="card-body">
+              <h3>Sunday School</h3>
+              <p>Bible teaching classes for children and youth.</p>
+              <a class="card-link" href="sunday-school.html">Read more →</a>
             </div>
           </article>
         </div>
@@ -173,5 +187,46 @@
 
     <script src="../js/main.js"></script>
     <script src="../js/slideshow.js"></script>
+    <script>
+      // ── Programme search toggle ─────────────────────────────────────────
+      (function () {
+        const wrap   = document.getElementById('programmeSearchWrap');
+        const toggle = document.getElementById('programmeSearchToggle');
+        const input  = document.getElementById('programmeSearch');
+        const grid   = document.getElementById('programmeGrid');
+        const cards  = Array.from(grid.querySelectorAll('.feature-card'));
+
+        function filterCards(q) {
+          const term = q.trim().toLowerCase();
+          cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = (!term || text.includes(term)) ? '' : 'none';
+          });
+        }
+
+        function openSearch() {
+          wrap.classList.add('is-open');
+          toggle.setAttribute('aria-expanded', 'true');
+          input.removeAttribute('tabindex');
+          setTimeout(() => input.focus(), 50);
+        }
+
+        function closeSearch() {
+          wrap.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          input.setAttribute('tabindex', '-1');
+          input.value = '';
+          filterCards('');
+        }
+
+        toggle.addEventListener('click', () => {
+          wrap.classList.contains('is-open') ? closeSearch() : openSearch();
+        });
+
+        input.addEventListener('input', e => filterCards(e.target.value));
+        input.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSearch(); toggle.focus(); } });
+        document.addEventListener('click', e => { if (!wrap.contains(e.target)) closeSearch(); });
+      })();
+    </script>
   </body>
 </html>

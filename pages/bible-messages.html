@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>try{var t=localStorage.getItem('mpbc-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
     <title>Bible Messages | Montrose Park Bible Church</title>
+    <link rel="icon" href="../media/logos/main.jpeg" type="image/jpeg" />
+    <script>(function(){var img=new Image();img.crossOrigin='anonymous';img.onload=function(){var s=64,c=document.createElement('canvas');c.width=c.height=s;var ctx=c.getContext('2d');ctx.beginPath();ctx.arc(s/2,s/2,s/2,0,Math.PI*2);ctx.closePath();ctx.clip();ctx.drawImage(img,0,0,s,s);var link=document.querySelector('link[rel="icon"]');if(!link){link=document.createElement('link');link.rel='icon';document.head.appendChild(link);}link.href=c.toDataURL('image/png');};img.src='../media/logos/main.jpeg';})();</script>
     <link rel="stylesheet" href="../styles/main.css" />
   </head>
   <body>
@@ -33,9 +35,7 @@
             <div class="nav-dropdown-menu" aria-label="About us submenu">
               <a href="about-introduction.html">Introduction</a>
               <a href="about-what-to-expect.html">What to expect</a>
-              <a href="about-history.html">History</a>
               <a href="about-what-we-believe.html">What we believe</a>
-              <a href="about-church-leadership.html">Church leadership</a>
             </div>
           </div>
           <a href="map-directions.html">Map &amp; Directions</a>
@@ -67,13 +67,29 @@
       <section class="container page-content">
 
         <div class="sermon-search-bar">
-          <input
-            type="search"
-            id="sermonSearch"
-            class="sermon-search-input"
-            placeholder="Search sermons by title…"
-            aria-label="Search sermons by title"
-          />
+          <div class="sermon-search-wrap" id="sermonSearchWrap">
+            <button
+              class="sermon-search-toggle"
+              id="sermonSearchToggle"
+              type="button"
+              aria-label="Toggle search"
+              aria-expanded="false"
+              aria-controls="sermonSearch"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </button>
+            <input
+              type="search"
+              id="sermonSearch"
+              class="sermon-search-input"
+              placeholder="Search sermons by title…"
+              aria-label="Search sermons by title"
+              tabindex="-1"
+            />
+          </div>
         </div>
 
         <div class="sermon-filter-bar">
@@ -263,6 +279,43 @@
         renderSermons();
         document.getElementById('sermonList').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
+
+      // ── Search toggle ─────────────────────────────────────────────────────
+      (function () {
+        const wrap   = document.getElementById('sermonSearchWrap');
+        const toggle = document.getElementById('sermonSearchToggle');
+        const input  = document.getElementById('sermonSearch');
+
+        function openSearch() {
+          wrap.classList.add('is-open');
+          toggle.setAttribute('aria-expanded', 'true');
+          input.removeAttribute('tabindex');
+          // slight delay so the width transition is visible before focus
+          setTimeout(() => input.focus(), 50);
+        }
+
+        function closeSearch() {
+          wrap.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          input.setAttribute('tabindex', '-1');
+          input.value = '';
+          currentSearch = '';
+          currentPage = 1;
+          renderSermons();
+        }
+
+        toggle.addEventListener('click', () => {
+          wrap.classList.contains('is-open') ? closeSearch() : openSearch();
+        });
+
+        // Close on Escape
+        input.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSearch(); toggle.focus(); } });
+
+        // Close when clicking outside
+        document.addEventListener('click', e => {
+          if (wrap.classList.contains('is-open') && !wrap.contains(e.target)) closeSearch();
+        });
+      })();
 
       // ── Initial render ────────────────────────────────────────────────────
       initSermonsPage();

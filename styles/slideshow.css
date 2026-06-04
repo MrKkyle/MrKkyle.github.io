@@ -2,8 +2,8 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: min(78vh, 760px);
-  min-height: 500px;
+  height: min(88vh, 900px);
+  min-height: 580px;
   z-index: 1;
   background: #111;
 }
@@ -279,8 +279,8 @@
 
 /* ── Programmes page slideshow variant ── */
 .programmes-slideshow {
-  height: min(46vh, 520px);
-  min-height: 380px;
+  height: min(65vh, 680px);
+  min-height: 450px;
 }
 
 .slideshow-page-title {
@@ -312,8 +312,8 @@
 
 @media (max-width: 900px) {
   .home-slideshow {
-    height: 68vh;
-    min-height: 460px;
+    height: 78vh;
+    min-height: 520px;
   }
 
   .home-slideshow .caption {
@@ -327,7 +327,7 @@
 
 @media (max-width: 640px) {
   .home-slideshow {
-    min-height: 420px;
+    min-height: 480px;
   }
 
   .home-slideshow .caption {

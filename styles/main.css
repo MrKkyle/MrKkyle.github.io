@@ -26,6 +26,7 @@
   --nav-text: rgba(28, 30, 38, 0.88);
   --body-glow-1: rgba(154, 117, 32, 0.07);
   --body-glow-2: rgba(154, 117, 32, 0.04);
+  --radius: 14px;
 }
 
 html[data-theme="dark"] {
@@ -54,6 +55,7 @@ html[data-theme="dark"] {
   --nav-text: rgba(232, 234, 242, 0.85);
   --body-glow-1: rgba(201, 168, 76, 0.07);
   --body-glow-2: rgba(30, 50, 100, 0.18);
+  --radius: 14px;
 }
 
 * {
@@ -130,6 +132,73 @@ body {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+}
+
+/* ── Page transition fade ── */
+body {
+  animation: pageFadeIn 420ms ease both;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.is-navigating {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+/* ── Gradient text for section headings ── */
+.section-head h2 {
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 40%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Image loading shimmer ── */
+.feature-card img,
+.slide .image {
+  background: linear-gradient(90deg, var(--bg-mid) 25%, var(--surface) 50%, var(--bg-mid) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.feature-card img[complete],
+.slide .image[complete] {
+  animation: none;
+  background: none;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Micro-interaction: nav glow on hover ── */
+.site-nav > a:hover,
+.nav-dropdown-toggle:hover {
+  text-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
+}
+
+/* ── Micro-interaction: CTA button pulse ── */
+.sl-btn,
+.btn-primary {
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.sl-btn:hover,
+.btn-primary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.35);
 }
 
 a {
@@ -422,7 +491,7 @@ a {
   overflow: hidden;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  border-radius: 14px;
+  border-radius: var(--radius);
   padding: 1.1rem;
   box-shadow: var(--shadow-sm);
   backdrop-filter: var(--glass-blur);
@@ -498,7 +567,7 @@ a {
 .feature-card {
   position: relative;
   background: var(--glass-bg);
-  border-radius: 14px;
+  border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow);
@@ -529,7 +598,7 @@ a {
 
 .feature-card:hover {
   border-color: var(--gold);
-  transform: translateY(-9px);
+  transform: translateY(-9px) perspective(800px) rotateX(2deg);
   box-shadow: 0 24px 42px rgba(0, 0, 0, 0.24);
 }
 
@@ -636,13 +705,14 @@ a {
 }
 
 .page-backdrop {
+  --backdrop-image: url("../media/content-media/Church-view.jpg");
   position: relative;
   min-height: 360px;
   display: flex;
   align-items: flex-end;
-  background-image: url("https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=1800&q=80");
+  background-image: var(--backdrop-image);
   background-size: cover;
-  background-position: center;
+  background-position: center 60%;
   border-bottom: 1px solid var(--line);
 }
 
@@ -876,29 +946,77 @@ a {
 /* ── Sermon search bar ── */
 .sermon-search-bar {
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.sermon-search-input {
-  width: 100%;
-  padding: 0.6rem 1rem;
+.sermon-search-wrap {
+  display: flex;
+  align-items: center;
   border: 1px solid var(--line-solid);
   border-radius: 999px;
   background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  overflow: hidden;
+  transition: border-color 220ms ease, box-shadow 220ms ease, width 320ms cubic-bezier(0.4,0,0.2,1);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.sermon-search-wrap.is-open {
+  width: min(22rem, 100%);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 20%, transparent);
+}
+
+.sermon-search-toggle {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0;
+  border-radius: 999px;
+  transition: color 160ms ease;
+}
+
+.sermon-search-toggle:hover {
+  color: var(--gold);
+}
+
+.sermon-search-toggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  pointer-events: none;
+}
+
+.sermon-search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0.9rem 0.55rem 0;
+  border: none;
+  background: transparent;
   color: var(--text);
   font-size: 0.9rem;
   outline: none;
-  transition: border-color 160ms ease, box-shadow 160ms ease;
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease 80ms;
+}
+
+.sermon-search-wrap.is-open .sermon-search-input {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .sermon-search-input::placeholder {
   color: var(--muted);
-}
-
-.sermon-search-input:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 20%, transparent);
 }
 
 /* ── Sermon pagination ── */
@@ -1398,26 +1516,6 @@ a {
   margin: 0.72rem 0 0;
   color: rgba(233, 237, 244, 0.95);
   font-size: 0.99rem;
-}
-
-.parallax-panel-history-1 {
-  background-image: url("https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=1800&q=80");
-}
-
-.parallax-panel-history-2 {
-  background-image: url("https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1800&q=80");
-}
-
-.parallax-panel-history-3 {
-  background-image: url("https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1800&q=80");
-}
-
-.parallax-panel-history-4 {
-  background-image: url("https://images.unsplash.com/photo-1452530050827-5b95f1e6d3f3?auto=format&fit=crop&w=1800&q=80");
-}
-
-.parallax-panel-history-5 {
-  background-image: url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1800&q=80");
 }
 
 .parallax-panel-believe-1 {

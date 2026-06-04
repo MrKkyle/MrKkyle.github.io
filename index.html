@@ -9,6 +9,11 @@
       name="description"
       content="Montrose Park Bible Church - worship, fellowship, Bible teaching, and community programmes."
     />
+    <link rel="icon" href="media/logos/main.jpeg" type="image/jpeg" />
+    <script>
+      // Generate a circular favicon (clips white background)
+      (function(){var img=new Image();img.crossOrigin='anonymous';img.onload=function(){var s=64,c=document.createElement('canvas');c.width=c.height=s;var ctx=c.getContext('2d');ctx.beginPath();ctx.arc(s/2,s/2,s/2,0,Math.PI*2);ctx.closePath();ctx.clip();ctx.drawImage(img,0,0,s,s);var link=document.querySelector('link[rel="icon"]');if(!link){link=document.createElement('link');link.rel='icon';document.head.appendChild(link);}link.href=c.toDataURL('image/png');};img.src='media/logos/main.jpeg';})();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -44,9 +49,7 @@
             <div class="nav-dropdown-menu" aria-label="About us submenu">
               <a href="pages/about-introduction.html">Introduction</a>
               <a href="pages/about-what-to-expect.html">What to expect</a>
-              <a href="pages/about-history.html">History</a>
               <a href="pages/about-what-we-believe.html">What we believe</a>
-              <a href="pages/about-church-leadership.html">Church leadership</a>
             </div>
           </div>
           <a href="pages/map-directions.html">Map & Directions</a>
@@ -77,9 +80,10 @@
               </div>
               <div class="image-container">
                 <img
-                  src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1800&q=80"
+                  src="/media/content-media/Church-main-image.jpg"
                   alt="Church worship gathering"
                   class="image"
+                  style="object-position: center 60%;"
                 />
               </div>
             </article>
@@ -100,7 +104,7 @@
               </div>
               <div class="image-container">
                 <img
-                  src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1800&q=80"
+                  src="/media/content-media/Church-full-m.jpg"
                   alt="People praying together"
                   class="image"
                 />
@@ -123,7 +127,7 @@
               </div>
               <div class="image-container">
                 <img
-                  src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1800&q=80"
+                  src="/media/content-media/Church-full.jpg"
                   alt="Church fellowship group"
                   class="image"
                 />
@@ -146,7 +150,7 @@
               </div>
               <div class="image-container">
                 <img
-                  src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=1800&q=80"
+                  src="/media/content-media/Church-view-2.jpg"
                   alt="Church building"
                   class="image"
                 />
@@ -199,10 +203,6 @@
             <p>Watch and listen to sermon recordings.</p>
           </a>
 
-          <a class="quick-item" href="pages/about-church-leadership.html">
-            <h3>Church Leadership</h3>
-            <p>Meet the elders, deacons, and ministry leaders serving our church.</p>
-          </a>
 
           <a class="quick-item" href="mailto:office@examplechurch.org">
             <h3>Email Us</h3>
@@ -221,7 +221,7 @@
           <div class="cards-grid">
             <article class="feature-card">
               <img
-                src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=1200&q=80"
+                src="/media/content-media/Preaching.jpg"
                 alt="Church building exterior"
               />
               <div class="card-body">
@@ -232,7 +232,7 @@
 
             <article class="feature-card">
               <img
-                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80"
+                src="/media/content-media/Prayer-gathering.JPG"
                 alt="Church members gathered in prayer"
               />
               <div class="card-body">
@@ -243,11 +243,11 @@
 
             <article class="feature-card">
               <img
-                src="https://images.unsplash.com/photo-1453219562534-36e2ce0ea18e?q=80&w=1673&auto=format&fit=crop"
+                src="/media/content-media/Ladies-Mens-Fellowshio.jpg"
                 alt="Small group Bible study around a table"
               />
               <div class="card-body">
-                <h3>Bible Studies</h3>
+                <h3>Bible Study</h3>
                 <p>Engage in in-depth study of Scripture with fellow believers.</p>
               </div>
             </article>
