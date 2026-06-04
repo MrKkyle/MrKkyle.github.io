@@ -37,10 +37,7 @@
   };
 
   // Determine starting slide
-  let currentIndex = Math.max(
-    0,
-    slides.findIndex((slide) => slide.classList.contains('is-active'))
-  );
+  let currentIndex = slides.findIndex((slide) => slide.classList.contains('is-active'));
   if (currentIndex === -1) {
     currentIndex = 0;
     slides[0].classList.add('is-active');
