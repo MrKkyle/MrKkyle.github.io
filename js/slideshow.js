@@ -25,6 +25,37 @@
   const initialDelayMs = Number.isFinite(parsedInitialDelayMs) && parsedInitialDelayMs >= 0
     ? parsedInitialDelayMs
     : intervalMs;
+  const mobilePanMedia = window.matchMedia('(max-width: 900px) and (prefers-reduced-motion: no-preference)');
+  const imageMotionDurationMs = Math.max(2600, intervalMs - 450);
+  const resetImageMotion = (slide) => {
+    const image = slide?.querySelector('.image');
+    if (!image) {
+      return;
+    }
+
+    image.style.transition = 'none';
+    image.style.transform = '';
+  };
+  const restartImageMotion = (slide, index) => {
+    const image = slide?.querySelector('.image');
+    if (!image || !mobilePanMedia.matches) {
+      resetImageMotion(slide);
+      return;
+    }
+
+    const moveFromX = index % 2 === 0 ? '-6%' : '6%';
+    const moveToX = index % 2 === 0 ? '4%' : '-4%';
+
+    image.style.transition = 'none';
+    image.style.transform = `translate3d(${moveFromX}, 0, 0) scale(1.16)`;
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        image.style.transition = `transform ${imageMotionDurationMs}ms cubic-bezier(0.19, 0.72, 0.22, 1)`;
+        image.style.transform = `translate3d(${moveToX}, 0, 0) scale(1.03)`;
+      });
+    });
+  };
   const setCaptionVisibility = (slide, isVisible) => {
     const caption = slide?.querySelector('.caption');
     if (!caption) {
@@ -45,7 +76,11 @@
 
   slides.forEach((slide, index) => {
     setCaptionVisibility(slide, index === currentIndex);
+    if (index !== currentIndex) {
+      resetImageMotion(slide);
+    }
   });
+  restartImageMotion(slides[currentIndex], currentIndex);
 
   let autoplayTimer;
   let autoplayCaptionFadeTimer;
@@ -64,8 +99,10 @@
       return;
     }
 
+    resetImageMotion(slides[currentIndex]);
     slides[currentIndex].classList.remove('is-active');
     slides[nextIndex].classList.add('is-active');
+    restartImageMotion(slides[nextIndex], nextIndex);
 
     syncPagination(nextIndex);
 
@@ -142,6 +179,7 @@
 
   const restartAutoplay = () => {
     setCaptionVisibility(slides[currentIndex], true);
+    restartImageMotion(slides[currentIndex], currentIndex);
     scheduleAutoplayCycle();
   };
 
@@ -185,6 +223,16 @@
 
   slideshow.addEventListener('mouseleave', () => {
     restartAutoplay();
+  });
+
+  mobilePanMedia.addEventListener('change', () => {
+    slides.forEach((slide, index) => {
+      if (index === currentIndex) {
+        restartImageMotion(slide, index);
+        return;
+      }
+      resetImageMotion(slide);
+    });
   });
 
   syncPagination(currentIndex);

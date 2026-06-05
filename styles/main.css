@@ -705,9 +705,9 @@ a {
 }
 
 .page-backdrop {
-  --backdrop-image: url("../media/content-media/Church-view.jpg");
+  --backdrop-image: url("../media/content-media/Church-main-image.jpg");
   position: relative;
-  min-height: 360px;
+  min-height: 460px;
   display: flex;
   align-items: flex-end;
   background-image: var(--backdrop-image);
