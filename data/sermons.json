@@ -21,16 +21,6 @@
             "downloadUrl": "https://drive.google.com/file/d/1z1QX1F2jLEJq83I5byKalW7tMitMT3hu/view?usp=drive_link"
         },
         {
-            "series": "standalone",
-            "seriesLabel": "Standalone",
-            "title": "Godly Influence of Lois and Eunice",
-            "preacher": "Elder Mornè Mitchell",
-            "date": "2026-05-10",
-            "scripture": "2 Timothy 1:5, 3:14-15",
-            "description": "This message explores the godly influence of Lois and Eunice, the grandmother and mother of Timothy, and how their faith shaped his spiritual journey. Drawing from Paul's letter to Timothy, we see the importance of a faithful heritage and the impact of godly mentors in the life of a believer.",
-            "downloadUrl": "https://drive.google.com/file/d/1zr_5i6G77zIVhz-PGfU2_AzDzleqyZqd/view?usp=drive_link"
-        },
-        {
             "series": "james",
             "seriesLabel": "James",
             "title": "What your wealth says about you",
@@ -39,6 +29,16 @@
             "scripture": "James 5:1-6",
             "description": "James delivers a powerful warning to the wealthy, exposing the dangers of materialism and the consequences of exploiting others for personal gain. This message challenges us to examine our attitudes toward wealth and to live with integrity and compassion in light of God's judgment.",
             "downloadUrl": "https://drive.google.com/file/d/146kAQW3X1EoKBFlicoRiRPGBB_x34fQu/view?usp=drive_link"
+        },
+        {
+            "series": "standalone",
+            "seriesLabel": "Standalone",
+            "title": "Godly Influence of Lois and Eunice",
+            "preacher": "Elder Mornè Mitchell",
+            "date": "2026-05-10",
+            "scripture": "2 Timothy 1:5, 3:14-15",
+            "description": "This message explores the godly influence of Lois and Eunice, the grandmother and mother of Timothy, and how their faith shaped his spiritual journey. Drawing from Paul's letter to Timothy, we see the importance of a faithful heritage and the impact of godly mentors in the life of a believer.",
+            "downloadUrl": "https://drive.google.com/file/d/1zr_5i6G77zIVhz-PGfU2_AzDzleqyZqd/view?usp=drive_link"
         }
     ]
 }
