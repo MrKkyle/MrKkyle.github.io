@@ -713,7 +713,6 @@ a {
   background-image: var(--backdrop-image);
   background-size: cover;
   background-position: center 60%;
-  border-bottom: 1px solid var(--line);
 }
 
 .page-backdrop::before {
