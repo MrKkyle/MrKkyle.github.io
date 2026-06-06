@@ -43,16 +43,17 @@
       return;
     }
 
-    const moveFromX = index % 2 === 0 ? '-6%' : '6%';
-    const moveToX = index % 2 === 0 ? '4%' : '-4%';
+    // Keep movement inside frame on narrow viewports.
+    const moveFromX = index % 2 === 0 ? '-3.5%' : '3.5%';
+    const moveToX = index % 2 === 0 ? '2.4%' : '-2.4%';
 
     image.style.transition = 'none';
-    image.style.transform = `translate3d(${moveFromX}, 0, 0) scale(1.16)`;
+    image.style.transform = `translate3d(${moveFromX}, 0, 0) scale(1.14)`;
 
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
         image.style.transition = `transform ${imageMotionDurationMs}ms cubic-bezier(0.19, 0.72, 0.22, 1)`;
-        image.style.transform = `translate3d(${moveToX}, 0, 0) scale(1.03)`;
+        image.style.transform = `translate3d(${moveToX}, 0, 0) scale(1.09)`;
       });
     });
   };
@@ -99,7 +100,6 @@
       return;
     }
 
-    resetImageMotion(slides[currentIndex]);
     slides[currentIndex].classList.remove('is-active');
     slides[nextIndex].classList.add('is-active');
     restartImageMotion(slides[nextIndex], nextIndex);
