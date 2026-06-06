@@ -811,6 +811,114 @@ a {
   gap: 0.6rem;
 }
 
+.coming-soon-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(201, 168, 76, 0.2), transparent 42%),
+    radial-gradient(circle at 86% 82%, rgba(201, 168, 76, 0.14), transparent 45%),
+    var(--glass-bg);
+  border: 1px solid color-mix(in srgb, var(--glass-border) 70%, rgba(201, 168, 76, 0.35));
+  border-radius: 18px;
+  padding: clamp(1.3rem, 3vw, 2rem);
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.coming-soon-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.22) 52%, transparent 74%);
+  transform: translateX(-130%) skewX(-14deg);
+  animation: comingSoonShine 7.5s ease-in-out infinite;
+}
+
+.coming-soon-label {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+.coming-soon-label::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--gold);
+  box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.15);
+}
+
+.coming-soon-card h2 {
+  margin: 0.4rem 0 0.55rem;
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  line-height: 1.1;
+}
+
+.coming-soon-card > p {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--muted);
+}
+
+.coming-soon-badges {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.coming-soon-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--line-solid) 80%, var(--gold));
+  border-radius: 999px;
+  padding: 0.3rem 0.72rem;
+  font-size: 0.79rem;
+  font-weight: 600;
+  color: var(--text);
+  background: color-mix(in srgb, var(--btn-soft-bg) 85%, rgba(201, 168, 76, 0.15));
+}
+
+.coming-soon-verse {
+  margin: 1rem 0 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--gold);
+  background: color-mix(in srgb, var(--surface-solid) 70%, transparent);
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 600;
+  max-width: 72ch;
+}
+
+.coming-soon-verse cite {
+  display: block;
+  margin-top: 0.35rem;
+  font-style: normal;
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+@keyframes comingSoonShine {
+  0%,
+  78%,
+  100% {
+    transform: translateX(-130%) skewX(-14deg);
+  }
+  88% {
+    transform: translateX(130%) skewX(-14deg);
+  }
+}
+
 /* ── FAQ accordion ── */
 .faq-list {
   display: flex;
