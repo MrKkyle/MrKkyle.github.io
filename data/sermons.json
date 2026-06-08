@@ -1,6 +1,16 @@
 {
     "sermons": [
         {
+            "series": "peter",
+            "seriesLabel": "Peter",
+            "title": "An Introduction to Peter",
+            "preacher": "Elder Graeme Coetzee",
+            "date": "2026-06-07",
+            "scripture": "1 Peter 1:1-2",
+            "description": "In this message, we introduce the book of 1 Peter, exploring its context and the themes that run throughout the epistle. We examine Peter's audience, his purpose in writing, and how his teachings remain relevant for believers today as we navigate trials and seek to live holy lives in a hostile world.",
+            "downloadUrl": "https://drive.google.com/file/d/1VaN3zNu4BQ3z76BZAwWzeDfMrxZqd__g/view?usp=drive_link"
+        },
+        {
             "series": "james",
             "seriesLabel": "James",
             "title": "The Prayer of Faith and Confession",
