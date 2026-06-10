@@ -225,7 +225,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 84px;
+  min-height: 70px;
   gap: 1rem;
 }
 
