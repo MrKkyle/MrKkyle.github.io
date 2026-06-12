@@ -608,6 +608,10 @@ a {
   box-shadow: 0 24px 42px rgba(0, 0, 0, 0.24);
 }
 
+.feature-card.is-clickable-card {
+  cursor: pointer;
+}
+
 .feature-card:hover::after {
   opacity: 1;
   animation: cardShineSweep 900ms cubic-bezier(0.2, 0.75, 0.16, 1);
@@ -725,11 +729,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(8, 10, 20, 0.35) 0%,
-    rgba(8, 10, 20, 0.72) 100%
-  );
+  background: rgba(0, 0, 0, 0.34);
 }
 
 .page-backdrop .container {

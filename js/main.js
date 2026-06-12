@@ -264,6 +264,51 @@ document.addEventListener("click", (e) => {
   setTimeout(() => { window.location.href = link.href; }, 180);
 });
 
+/* ── Make programme cards fully clickable ── */
+function initClickableFeatureCards() {
+  const interactiveSelector = "a, button, input, select, textarea, summary, [role='button'], [role='link']";
+
+  document.querySelectorAll(".feature-card").forEach((card) => {
+    const link = card.querySelector(".card-link[href]");
+    if (!link) {
+      return;
+    }
+
+    card.classList.add("is-clickable-card");
+
+    if (!card.hasAttribute("tabindex")) {
+      card.tabIndex = 0;
+    }
+
+    card.setAttribute("role", "link");
+
+    if (!card.hasAttribute("aria-label")) {
+      const heading = card.querySelector("h3");
+      if (heading && heading.textContent) {
+        card.setAttribute("aria-label", `Open ${heading.textContent.trim()}`);
+      }
+    }
+
+    card.addEventListener("click", (event) => {
+      if (event.target.closest(interactiveSelector)) {
+        return;
+      }
+      link.click();
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+
+      event.preventDefault();
+      link.click();
+    });
+  });
+}
+
+initClickableFeatureCards();
+
 /* ── Remove image shimmer once loaded ── */
 document.querySelectorAll(".feature-card img, .slide .image").forEach((img) => {
   const markLoaded = () => img.setAttribute("complete", "");
