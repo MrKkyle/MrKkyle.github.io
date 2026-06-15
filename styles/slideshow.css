@@ -55,7 +55,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.34);
+  background: rgba(0, 0, 0, 0.24);
   z-index: 2;
 }
 
@@ -111,7 +111,7 @@
 .home-slideshow .title {
   margin: 0 0 0.7rem;
   max-width: 1000px;
-  font: 700 clamp(1.6rem, 5vw, 2.3rem) / 1.18 Inter, "Open Sans", sans-serif;
+  font: 700 clamp(1.6rem, 5vw, 2.1rem) / 1.18 Inter, "Open Sans", sans-serif;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -358,7 +358,7 @@
 
   .home-slideshow .title {
     margin-bottom: 0.55rem;
-    font-size: clamp(1.2rem, 3.3vw, 1.72rem);
+    font-size: clamp(1.2rem, 3.3vw, 1.69rem);
     line-height: 1.16;
   }
 
@@ -402,7 +402,7 @@
 
   .home-slideshow .title {
     margin-bottom: 0.45rem;
-    font-size: clamp(1rem, 5.5vw, 1.34rem);
+    font-size: clamp(1rem, 5.5vw, 1.30rem);
     line-height: 1.14;
     letter-spacing: 0.04em;
   }

@@ -14,13 +14,13 @@
     return;
   }
 
-  const defaultIntervalMs = 5000;
+  const defaultIntervalMs = 6000;
   const parsedIntervalMs = Number(slideshow.dataset.autoplayInterval);
   const intervalMs = Number.isFinite(parsedIntervalMs) && parsedIntervalMs > 0
     ? parsedIntervalMs
     : defaultIntervalMs;
   const captionFadeDurationMs = 520;
-  const captionOnlyImageHoldMs = 2000;
+  const captionOnlyImageHoldMs = 2500;
   const parsedInitialDelayMs = Number(slideshow.dataset.autoplayInitialDelay);
   const initialDelayMs = Number.isFinite(parsedInitialDelayMs) && parsedInitialDelayMs >= 0
     ? parsedInitialDelayMs
