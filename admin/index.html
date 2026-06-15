@@ -3,7 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>try{var t=localStorage.getItem('mpbc-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
     <title>Admin | Montrose Park Bible Church</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <script>
+      // Generate a circular favicon (clips white background)
+      (function(){var img=new Image();img.crossOrigin='anonymous';img.onload=function(){var s=64,c=document.createElement('canvas');c.width=c.height=s;var ctx=c.getContext('2d');ctx.beginPath();ctx.arc(s/2,s/2,s/2,0,Math.PI*2);ctx.closePath();ctx.clip();ctx.drawImage(img,0,0,s,s);var dataUrl=c.toDataURL('image/png');document.querySelectorAll('link[rel*="icon"]').forEach(function(el){el.parentNode.removeChild(el);});var link=document.createElement('link');link.rel='icon';link.type='image/png';link.href=dataUrl;document.head.appendChild(link);};img.src='media/logos/main.jpeg';})();
+    </script>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/slideshow.css" />
   </head>
   <body>
     <noscript>This admin area requires JavaScript.</noscript>
