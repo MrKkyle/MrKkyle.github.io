@@ -1,6 +1,16 @@
 {
     "sermons": [
         {
+            "series": "standalone",
+            "seriesLabel": "Standalone",
+            "title": "An Encouragement to Fathers",
+            "preacher": "Elder Graeme Coetzee",
+            "date": "2026-06-21",
+            "scripture": "Collosians 3:17-23",
+            "description": "An encouragement to fathers, drawing from Paul's exhortation to serve wholeheartedly as unto the Lord. We explore the importance of leading by example, and how fathers can have a loving relationship with their wives and children while honoring God in all they do.",
+            "downloadUrl": "https://drive.google.com/file/d/1aIcKeWFRAi5qiLh_SFNbwOe-hMy8gunn/view?usp=sharing"
+        },
+        {
             "series": "peter",
             "seriesLabel": "Peter",
             "title": "A Living Hope for a Suffering People - Part 1",
