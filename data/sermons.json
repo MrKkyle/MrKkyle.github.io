@@ -1,6 +1,16 @@
 {
     "sermons": [
         {
+            "series": "peter",
+            "seriesLabel": "Peter",
+            "title": "A Living Hope for a Suffering People - Part 2",
+            "preacher": "Elder Mornè Mitchell",
+            "date": "2026-06-28",
+            "scripture": "1 Peter 1:3-13",
+            "description": "Part 2 of the Living Hope series, where we continue to explore the hope that believers have in Christ amidst suffering. Morne Mitchell delves deeper into the prophets's message of hope, and how even Angels desire to look into the salvation that is ours in Christ. We also discuss how this hope should shape our perspective and actions as we navigate the challenges of life.",
+            "downloadUrl": "https://drive.google.com/file/d/1IjfYodx1Rp3VLnqKhpRgAfTdeXxtvbDW/view?usp=sharing"
+        },
+        {
             "series": "standalone",
             "seriesLabel": "Standalone",
             "title": "An Encouragement to Fathers",
