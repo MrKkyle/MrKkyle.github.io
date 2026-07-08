@@ -521,7 +521,7 @@ a {
 
 .section-head h2 {
   margin: 0;
-  font-size: clamp(1rem, 3.2vw, 2.5rem);
+  font-size: 30px;
   letter-spacing: 0.015em;
   line-height: 1.12;
 }
