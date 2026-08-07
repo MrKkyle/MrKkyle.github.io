@@ -845,7 +845,7 @@ a {
 }
 
 .page-backdrop {
-  --backdrop-image: url("../media/content-media/Church-main-image.jpg");
+  --backdrop-image: url("../media/content-media/Church-main-imagewebp");
   position: relative;
   min-height: 520px;
   display: flex;
