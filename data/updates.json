@@ -1,32 +1,39 @@
 {
-  "updates": [
-    {
-      "title": "Mukanyo Bible Study Resumes",
-      "category": "announcements",
-      "date": "2026-05-24",
-      "excerpt": "Our Mukanyo Bible study programme will resume Sunday evenings starting May 24th.",
-      "content": "Our Mukanyo Bible study program resumes Sunday evening, May 24th. We invite everyone to join us as we discuss our next topic: Teenagers and Children. This is a great opportunity for parents and youth to grow together in faith. We look forward to seeing you there!"
-    },
-    {
-      "title": "Sunday Evening Bible Study Closed for Fathers's Day",
-      "category": "announcements",
-      "date": "2026-06-21",
-      "excerpt": "Sunday evening Bible study will not commence on Father's Day.",
-      "content": "Sunday evening Bible study will not commence on Father's Day. We encourage everyone to spend this special day with their families and loved ones."
-    },
-    {
-      "title": "Sunday Evening Bible Study Closed for Mother's Day",
-      "category": "announcements",
-      "date": "2026-05-10",
-      "excerpt": "Sunday evening Bible study will not commence on Mother's Day.",
-      "content": "Sunday evening Bible study will not commence on Mother's Day. We encourage everyone to spend this special day with their families and loved ones."
-    },
-    {
-      "title": "New Baptism Candidates",
-      "category": "announcements",
-      "date": "2026-03-15",
-      "excerpt": "We are excited to announce our upcoming baptism service and the candidates who will be baptized.",
-      "content": "We are excited to announce our upcoming baptism service and the candidates who will be baptized. Please join us in celebrating this important step in their faith journey."
-    }
-  ]
+    "updates": [
+        {
+            "title": "Sunday Evening Bible Study Closed for National Women's Day Holiday",
+            "category": "announcements",
+            "date": "2026-06-21",
+            "excerpt": "Sunday evening Bible study will not commence on National Women's Day.",
+            "content": "Sunday evening Bible study will not commence on National Women's Day. We encourage everyone to spend this special day with their families and loved ones."
+        },
+        {
+            "title": "Sunday Evening Bible Study Closed for Fathers's Day",
+            "category": "announcements",
+            "date": "2026-06-21",
+            "excerpt": "Sunday evening Bible study will not commence on Father's Day.",
+            "content": "Sunday evening Bible study will not commence on Father's Day. We encourage everyone to spend this special day with their families and loved ones."
+        },
+        {
+            "title": "Mukanyo Bible Study Resumes",
+            "category": "announcements",
+            "date": "2026-05-24",
+            "excerpt": "Our Mukanyo Bible study programme will resume Sunday evenings starting May 24th.",
+            "content": "Our Mukanyo Bible study program resumes Sunday evening, May 24th. We invite everyone to join us as we discuss our next topic: Teenagers and Children. This is a great opportunity for parents and youth to grow together in faith. We look forward to seeing you there!"
+        },
+        {
+            "title": "Sunday Evening Bible Study Closed for Mother's Day",
+            "category": "announcements",
+            "date": "2026-05-10",
+            "excerpt": "Sunday evening Bible study will not commence on Mother's Day.",
+            "content": "Sunday evening Bible study will not commence on Mother's Day. We encourage everyone to spend this special day with their families and loved ones."
+        },
+        {
+            "title": "New Baptism Candidates",
+            "category": "announcements",
+            "date": "2026-03-15",
+            "excerpt": "We are excited to announce our upcoming baptism service and the candidates who will be baptized.",
+            "content": "We are excited to announce our upcoming baptism service and the candidates who will be baptized. Please join us in celebrating this important step in their faith journey."
+        }
+    ]
 }
