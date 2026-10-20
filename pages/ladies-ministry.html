@@ -7,6 +7,12 @@
     <title>Ladies Ministry | Montrose Park Bible Church</title>
     <link rel="icon" href="../media/logos/main.jpeg" type="image/jpeg" />
     <script>(function(){var img=new Image();img.crossOrigin='anonymous';img.onload=function(){var s=64,c=document.createElement('canvas');c.width=c.height=s;var ctx=c.getContext('2d');ctx.beginPath();ctx.arc(s/2,s/2,s/2,0,Math.PI*2);ctx.closePath();ctx.clip();ctx.drawImage(img,0,0,s,s);var link=document.querySelector('link[rel="icon"]');if(!link){link=document.createElement('link');link.rel='icon';document.head.appendChild(link);}link.href=c.toDataURL('image/png');};img.src='../media/logos/main.jpeg';})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../styles/main.css" />
   </head>
   <body>
@@ -40,7 +46,21 @@
             </div>
           </div>
           <a href="map-directions.html">Map & Directions</a>
-          <a href="bible-messages.html">Bible Messages</a>
+          <div class="nav-dropdown" id="archiveDropdown">
+            <button
+              class="nav-dropdown-toggle"
+              id="archiveDropdownToggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              Our Archive
+            </button>
+            <div class="nav-dropdown-menu" aria-label="Our Archive submenu">
+              <a href="bible-messages.html">Bible Messages</a>
+              <a href="photo-archive.html">Photo Archive</a>
+            </div>
+          </div>
           <a href="programmes.html">Programmes</a>
           <a href="contact.html">Contact Us</a>
         </nav>
@@ -98,9 +118,31 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-wrap">
-        <p>© <span id="year"></span> Montrose Park Bible Church</p>
-        <a href="../index.html">Back to Home</a>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-identity">
+            <img class="footer-logo" src="../media/logos/main.jpeg" alt="" aria-hidden="true" />
+            <div>
+              <p class="footer-church-name">Montrose Park Bible Church</p>
+              <blockquote class="footer-verse">
+                "The church of the living God, the pillar and ground of the truth."
+                <cite>1 Timothy 3:15</cite>
+              </blockquote>
+            </div>
+          </div>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="about-introduction.html">About Us</a>
+            <a href="bible-messages.html">Bible Messages</a>
+            <a href="photo-archive.html">Photo Archive</a>
+            <a href="programmes.html">Programmes</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="map-directions.html">Map &amp; Directions</a>
+          </nav>
+        </div>
+        <div class="footer-wrap">
+          <p>&copy; <span id="year"></span> Montrose Park Bible Church</p>
+          <a href="../index.html">Back to Home</a>
+        </div>
       </div>
     </footer>
 

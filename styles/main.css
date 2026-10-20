@@ -8,13 +8,22 @@
   --muted: #5c6372;
   --line: rgba(0, 0, 0, 0.1);
   --line-solid: rgba(0, 0, 0, 0.15);
+  /* --gold is the brand FILL (buttons, borders, rules). --gold-text is the
+     readable gold ink for type: #9a7520 only reaches 3.76:1 on the cream
+     background, which fails WCAG AA, so text uses the darker tone instead. */
   --gold: #9a7520;
+  --gold-text: #7d5d12;
+  --gold-hover: #5f460c;
   --gold-light: #c9a84c;
   --gold-dark: #6e5212;
+  --gold-grad-1: #6e5212;
+  --gold-grad-2: #7d5d12;
+  --gold-grad-3: #9a7520;
   --shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.08);
   --glass-blur: blur(14px);
   --glass-bg: rgba(255, 255, 255, 0.65);
+  --card-bg: var(--surface);
   --glass-border: rgba(0, 0, 0, 0.09);
   /* structural chrome */
   --header-bg: rgba(244, 241, 228, 0.92);
@@ -27,6 +36,9 @@
   --body-glow-1: rgba(154, 117, 32, 0.07);
   --body-glow-2: rgba(154, 117, 32, 0.04);
   --radius: 14px;
+  /* Lora carries the page and section titles; Inter handles UI and body copy. */
+  --font-body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: Lora, Georgia, "Times New Roman", serif;
 }
 
 html[data-theme="dark"] {
@@ -40,11 +52,17 @@ html[data-theme="dark"] {
   --line: rgba(255, 255, 255, 0.1);
   --line-solid: rgba(255, 255, 255, 0.18);
   --gold: #c9a84c;
+  --gold-text: #c9a84c;
+  --gold-hover: #e5c876;
   --gold-light: #e5c876;
   --gold-dark: #9e7c2e;
+  --gold-grad-1: #9e7c2e;
+  --gold-grad-2: #c9a84c;
+  --gold-grad-3: #e5c876;
   --shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
   --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.4);
   --glass-bg: rgba(16, 22, 40, 0.6);
+  --card-bg: var(--surface);
   --glass-border: rgba(255, 255, 255, 0.1);
   --header-bg: rgba(10, 13, 24, 0.75);
   --nav-mobile-bg: rgba(10, 13, 24, 0.96);
@@ -69,12 +87,7 @@ body {
 }
 
 body {
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family: var(--font-body);
   color: var(--text);
   background: var(--bg);
   background-image:
@@ -177,9 +190,9 @@ body.is-navigating {
 .section-head h2 {
   background: linear-gradient(
     135deg,
-    var(--gold-dark) 0%,
-    var(--gold) 40%,
-    var(--gold-light) 100%
+    var(--gold-grad-1) 0%,
+    var(--gold-grad-2) 40%,
+    var(--gold-grad-3) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -240,6 +253,28 @@ a {
   text-decoration: none;
 }
 
+/* ── Headings ───────────────────────────────────────────────────────────
+   The serif is reserved for page and section titles; h3 and below stay in
+   Inter so cards, lists and controls keep their UI clarity. */
+h1,
+h2,
+.page-hero h1,
+.section-head h2,
+.slideshow-page-title h1,
+.footer-church-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+h1 {
+  line-height: 1.18;
+}
+
+h2 {
+  line-height: 1.22;
+}
+
 .container {
   width: min(1120px, 92%);
   margin-inline: auto;
@@ -285,7 +320,7 @@ a {
   place-items: center;
   border: 2px solid var(--gold);
   border-radius: 50%;
-  color: var(--gold);
+  color: var(--gold-text);
   font-size: 1.05rem;
   background: rgba(201, 168, 76, 0.08);
 }
@@ -330,7 +365,7 @@ a {
 }
 
 .site-nav a:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .site-nav a:hover::after {
@@ -353,7 +388,7 @@ a {
 }
 
 .nav-dropdown-toggle:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .nav-dropdown-toggle::after {
@@ -363,7 +398,7 @@ a {
 
 .nav-dropdown.is-open .nav-dropdown-toggle,
 .nav-dropdown:focus-within .nav-dropdown-toggle {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .nav-dropdown-menu {
@@ -400,7 +435,7 @@ a {
   padding: 0.5rem 0.9rem;
   border: 1px solid var(--gold);
   border-radius: 999px;
-  color: var(--gold);
+  color: var(--gold-text);
   background: rgba(201, 168, 76, 0.06);
 }
 
@@ -521,8 +556,10 @@ a {
 
 .section-head h2 {
   margin: 0;
-  font-size: 30px;
-  letter-spacing: 0.015em;
+  /* The old 1rem floor made section titles the same size as body copy on
+     every phone; 1.6rem keeps the hierarchy readable at 375px. */
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  letter-spacing: -0.005em;
   line-height: 1.12;
 }
 
@@ -549,6 +586,11 @@ a {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   isolation: isolate;
+  transition:
+    transform 300ms cubic-bezier(0.2, 0.75, 0.16, 1),
+    box-shadow 300ms cubic-bezier(0.2, 0.75, 0.16, 1),
+    border-color 220ms ease,
+    background-color 220ms ease;
 }
 
 .quick-item::before {
@@ -578,6 +620,7 @@ a {
 .quick-item:hover {
   border-color: var(--gold);
   transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 22px 38px rgba(0, 0, 0, 0.18);
   background-color: color-mix(
     in srgb,
     var(--glass-bg) 88%,
@@ -597,7 +640,7 @@ a {
 }
 
 .quick-item:hover h3 {
-  color: var(--gold);
+  color: var(--gold-text);
   transform: translateX(2px);
 }
 
@@ -702,7 +745,7 @@ a {
 }
 
 .feature-card:hover .card-body h3 {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .has-bg-logo {
@@ -798,12 +841,12 @@ a {
   display: block;
   margin-top: 0.3rem;
   font-style: normal;
-  font-family: Inter, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .footer-nav {
@@ -823,25 +866,31 @@ a {
 }
 
 .footer-nav a:hover {
-  color: var(--gold);
+  color: var(--gold-text);
   transform: translateX(3px);
 }
 
 .footer-wrap {
   padding: 1.1rem 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
   color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.footer-wrap p {
+  margin: 0;
 }
 
 .footer-wrap a {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .footer-wrap a:hover {
-  color: var(--gold-light);
+  color: var(--gold-hover);
 }
 
 .page-backdrop {
@@ -1064,14 +1113,14 @@ a {
 .card-link {
   display: inline-block;
   margin-top: 0.8rem;
-  color: var(--gold);
+  color: var(--gold-text);
   font-weight: 700;
   font-size: 0.92rem;
   transition: color 150ms ease;
 }
 
 .card-link:hover {
-  color: var(--gold-light);
+  color: var(--gold-hover);
 }
 
 .redirect-card {
@@ -1087,7 +1136,7 @@ a {
 }
 
 .redirect-card a {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .redirect-card h1 {
@@ -1322,7 +1371,7 @@ a {
 }
 
 .faq-question:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .faq-answer {
@@ -1414,7 +1463,7 @@ a {
 }
 
 .sermon-search-toggle:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .sermon-search-toggle svg {
@@ -1605,7 +1654,7 @@ a {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: var(--gold);
+  color: var(--gold-text);
   background: rgba(201, 168, 76, 0.1);
   border: 1px solid rgba(201, 168, 76, 0.25);
   border-radius: 999px;
@@ -1799,7 +1848,7 @@ a {
 }
 .updates-pill:hover {
   border-color: var(--gold);
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .updates-pill.is-active {
   background: var(--gold);
@@ -1842,7 +1891,7 @@ a {
   letter-spacing: 0.5px;
   padding: 0.25rem 0.75rem;
   background: var(--body-glow-1);
-  color: var(--gold);
+  color: var(--gold-text);
   border-radius: 4px;
   margin-bottom: 0.5rem;
 }
@@ -1870,7 +1919,7 @@ a {
 }
 .update-summary {
   cursor: pointer;
-  color: var(--gold);
+  color: var(--gold-text);
   font-size: 0.875rem;
   font-weight: 600;
   padding: 0;
@@ -1976,7 +2025,7 @@ a {
   cursor: pointer;
   border: 1px solid var(--gold);
   background: transparent;
-  color: var(--gold);
+  color: var(--gold-text);
   border-radius: 999px;
   padding: 0.32rem 0.65rem;
   font-size: 1rem;
@@ -2118,4 +2167,285 @@ a {
   .parallax-card {
     padding: 1.1rem 1rem;
   }
+}
+
+/* ── Photo Archive ─────────────────────────────────────────────────────── */
+.page-backdrop--photos {
+  background-image: url("../media/content-media/Church-full.webp");
+  background-position: center 45%;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+  align-items: start;
+}
+
+/* Text-only tile: click the summary to unfold the detail below it. */
+.album-tile {
+  position: relative;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-left: 3px solid rgba(201, 168, 76, 0.35);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  overflow: hidden;
+  transition:
+    border-color 220ms ease,
+    transform 300ms cubic-bezier(0.2, 0.75, 0.16, 1),
+    box-shadow 300ms cubic-bezier(0.2, 0.75, 0.16, 1);
+}
+
+.album-tile.is-pending {
+  border-left-color: var(--line);
+}
+
+.album-tile:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+}
+
+.album-tile.is-open {
+  border-color: var(--gold);
+  border-left-color: var(--gold);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
+}
+
+/* ── The clickable summary ── */
+.album-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.album-tile-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 1.2rem 1.3rem;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.album-tile-head:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -4px;
+  border-radius: var(--radius);
+}
+
+.album-head-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.album-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--gold-text);
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  width: fit-content;
+}
+
+.album-title {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+  transition: color 220ms ease;
+}
+
+.album-tile-head:hover .album-title,
+.album-tile.is-open .album-title {
+  color: var(--gold-text);
+}
+
+.album-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.album-meta-sep {
+  opacity: 0.6;
+}
+
+.album-access::before {
+  content: "🔒 ";
+  font-size: 0.8em;
+}
+
+/* ── Chevron: rotates as the tile opens ── */
+.album-chevron {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  margin-top: 0.55rem;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: rotate(45deg);
+  transform-origin: center;
+  transition: transform 360ms cubic-bezier(0.2, 0.75, 0.16, 1);
+}
+
+.album-tile.is-open .album-chevron {
+  transform: rotate(-135deg);
+}
+
+/* ── The unfolding detail ──
+   grid-template-rows 0fr → 1fr animates smoothly to the content's own height,
+   so nothing has to be measured in JavaScript. */
+.album-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 360ms cubic-bezier(0.2, 0.75, 0.16, 1),
+    opacity 240ms ease;
+}
+
+.album-reveal-inner {
+  overflow: hidden;
+  min-height: 0;
+  /* Keeps the collapsed link out of the tab order until the tile is open. */
+  visibility: hidden;
+  transition: visibility 0s linear 360ms;
+}
+
+.album-tile.is-open .album-reveal {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.album-tile.is-open .album-reveal-inner {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* Detail slides up into place a beat after the tile opens. */
+.album-description,
+.album-action {
+  transform: translateY(-6px);
+  transition:
+    transform 360ms cubic-bezier(0.2, 0.75, 0.16, 1),
+    color 150ms ease;
+}
+
+.album-tile.is-open .album-description,
+.album-tile.is-open .album-action {
+  transform: translateY(0);
+}
+
+.album-tile.is-open .album-action {
+  transition-delay: 60ms;
+}
+
+.album-description {
+  margin: 0;
+  padding: 0 1.3rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted);
+  border-top: 1px solid var(--glass-border);
+  padding-top: 0.9rem;
+}
+
+.album-action {
+  display: inline-block;
+  margin: 0.75rem 1.3rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold-text);
+}
+
+a.album-action:hover {
+  color: var(--gold-hover);
+  text-decoration: underline;
+}
+
+.album-action.is-pending {
+  color: var(--muted);
+  font-weight: 600;
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .album-tile,
+  .album-reveal,
+  .album-chevron,
+  .album-description,
+  .album-action {
+    transition: none;
+  }
+
+  .album-tile:hover {
+    transform: none;
+  }
+
+  .album-tile.is-open .album-description,
+  .album-tile.is-open .album-action {
+    transform: none;
+  }
+}
+
+.members-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 1.4rem;
+  padding: 0.9rem 1.15rem;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.members-notice-icon {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.members-notice-body strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+
+.members-notice-body p {
+  margin: 0;
+}
+
+.members-notice-body a {
+  color: var(--gold-text);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.members-notice-body a:hover {
+  color: var(--gold-hover);
 }

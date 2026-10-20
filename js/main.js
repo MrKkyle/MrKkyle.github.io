@@ -64,30 +64,47 @@ function initAutoHideHeader() {
 
 initAutoHideHeader();
 
-/* ── About dropdown ── */
-const aboutDropdown = document.getElementById("aboutDropdown");
-const aboutDropdownToggle = document.getElementById("aboutDropdownToggle");
+/* ── Nav dropdowns (About us, Our Archive, …) ── */
+const navDropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
 
-if (aboutDropdown && aboutDropdownToggle) {
-  const closeAboutDropdown = () => {
-    aboutDropdown.classList.remove("is-open");
-    aboutDropdownToggle.setAttribute("aria-expanded", "false");
+if (navDropdowns.length) {
+  const closeDropdown = (dropdown) => {
+    dropdown.classList.remove("is-open");
+    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "false");
+    }
   };
 
-  aboutDropdownToggle.addEventListener("click", () => {
-    const isOpen = aboutDropdown.classList.toggle("is-open");
-    aboutDropdownToggle.setAttribute("aria-expanded", String(isOpen));
+  const closeAllDropdowns = () => navDropdowns.forEach(closeDropdown);
+
+  navDropdowns.forEach((dropdown) => {
+    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+    if (!toggle) {
+      return;
+    }
+
+    toggle.addEventListener("click", () => {
+      const wasOpen = dropdown.classList.contains("is-open");
+      closeAllDropdowns();
+      if (!wasOpen) {
+        dropdown.classList.add("is-open");
+        toggle.setAttribute("aria-expanded", "true");
+      }
+    });
   });
 
   document.addEventListener("click", (event) => {
-    if (!aboutDropdown.contains(event.target)) {
-      closeAboutDropdown();
-    }
+    navDropdowns.forEach((dropdown) => {
+      if (!dropdown.contains(event.target)) {
+        closeDropdown(dropdown);
+      }
+    });
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      closeAboutDropdown();
+      closeAllDropdowns();
     }
   });
 }
@@ -221,7 +238,7 @@ function initRevealAnimations() {
 
   candidates.forEach(observeElement);
 
-  const dynamicSelectors = [".sermon-card", ".update-card"];
+  const dynamicSelectors = [".sermon-card", ".update-card", ".album-tile"];
   const mutationObserver = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {

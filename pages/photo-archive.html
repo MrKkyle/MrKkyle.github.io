@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>try{var t=localStorage.getItem('mpbc-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');}catch(e){}</script>
+    <title>Photo Archive | Montrose Park Bible Church</title>
+    <meta
+      name="description"
+      content="Browse photo albums from church events — services, camps, youth outings, and celebrations. Album access is for church members."
+    />
+    <link rel="icon" href="../media/logos/main.jpeg" type="image/jpeg" />
+    <script>(function(){var img=new Image();img.crossOrigin='anonymous';img.onload=function(){var s=64,c=document.createElement('canvas');c.width=c.height=s;var ctx=c.getContext('2d');ctx.beginPath();ctx.arc(s/2,s/2,s/2,0,Math.PI*2);ctx.closePath();ctx.clip();ctx.drawImage(img,0,0,s,s);var link=document.querySelector('link[rel="icon"]');if(!link){link=document.createElement('link');link.rel='icon';document.head.appendChild(link);}link.href=c.toDataURL('image/png');};img.src='../media/logos/main.jpeg';})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a class="brand" href="../index.html">
+          <img class="brand-logo" src="../media/logos/main.jpeg" alt="Montrose Park Bible Church logo" />
+          <span class="brand-text">Montrose Park Bible Church</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          ☰
+        </button>
+
+        <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+          <div class="nav-dropdown" id="aboutDropdown">
+            <button
+              class="nav-dropdown-toggle"
+              id="aboutDropdownToggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              About us
+            </button>
+            <div class="nav-dropdown-menu" aria-label="About us submenu">
+              <a href="about-introduction.html">Introduction</a>
+              <a href="about-what-to-expect.html">What to expect</a>
+              <a href="about-our-history.html">Our history</a>
+              <a href="about-what-we-believe.html">What we believe</a>
+            </div>
+          </div>
+          <a href="map-directions.html">Map &amp; Directions</a>
+          <div class="nav-dropdown" id="archiveDropdown">
+            <button
+              class="nav-dropdown-toggle"
+              id="archiveDropdownToggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              Our Archive
+            </button>
+            <div class="nav-dropdown-menu" aria-label="Our Archive submenu">
+              <a href="bible-messages.html">Bible Messages</a>
+              <a href="photo-archive.html" aria-current="page">Photo Archive</a>
+            </div>
+          </div>
+          <a href="programmes.html">Programmes</a>
+          <a href="contact.html">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ── Hero backdrop ── -->
+      <section
+        class="page-backdrop page-backdrop--photos"
+        aria-label="Photo Archive hero"
+      >
+        <div class="container">
+          <div class="page-hero">
+            <h1>Photo Archive</h1>
+            <p class="redirect-meta">
+              Moments from the life of our church — services, camps, outings, and celebrations
+              gathered into albums you can browse. Select an event to see more about it.
+              Photo albums are shared with church members only.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Album list ── -->
+      <section class="container page-content">
+
+        <div class="members-notice">
+          <span class="members-notice-icon" aria-hidden="true">🔒</span>
+          <div class="members-notice-body">
+            <strong>Members only</strong>
+            <p>
+              These albums are stored in Google Drive and shared with church members only.
+              If you are a member and cannot open an album, please
+              <a href="contact.html">contact the church office</a> to be given access.
+            </p>
+          </div>
+        </div>
+
+        <div class="sermon-search-bar">
+          <div class="sermon-search-wrap" id="albumSearchWrap">
+            <button
+              class="sermon-search-toggle"
+              id="albumSearchToggle"
+              type="button"
+              aria-label="Toggle search"
+              aria-expanded="false"
+              aria-controls="albumSearch"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </button>
+            <input
+              type="search"
+              id="albumSearch"
+              class="sermon-search-input"
+              placeholder="Search events by name…"
+              aria-label="Search events by name"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+
+        <div class="sermon-filter-bar">
+          <span class="sermon-filter-label">Filter by category</span>
+          <div class="sermon-filter-pills" id="albumFilterPills" role="list">
+            <button class="sermon-pill is-active" data-category="all" type="button">All</button>
+          </div>
+        </div>
+
+        <div class="album-grid" id="albumGrid">
+          <!-- Rendered dynamically from data/photo-albums.json -->
+        </div>
+
+      </section>
+
+      <!-- ── Admin callout ── -->
+      <section class="container" style="padding-bottom: 3rem;">
+        <div class="admin-callout">
+          <div class="admin-callout-body">
+            <strong>Are you a church admin?</strong>
+            <p>Add a new event album, update its cover photo, or change its link from the Decap CMS admin area.</p>
+          </div>
+          <a class="btn btn-soft" href="../admin/">Go to Admin</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-identity">
+            <img class="footer-logo" src="../media/logos/main.jpeg" alt="" aria-hidden="true" />
+            <div>
+              <p class="footer-church-name">Montrose Park Bible Church</p>
+              <blockquote class="footer-verse">
+                "The church of the living God, the pillar and ground of the truth."
+                <cite>1 Timothy 3:15</cite>
+              </blockquote>
+            </div>
+          </div>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="about-introduction.html">About Us</a>
+            <a href="bible-messages.html">Bible Messages</a>
+            <a href="photo-archive.html">Photo Archive</a>
+            <a href="programmes.html">Programmes</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="map-directions.html">Map &amp; Directions</a>
+          </nav>
+        </div>
+        <div class="footer-wrap">
+          <p>&copy; <span id="year"></span> Montrose Park Bible Church</p>
+          <a href="../index.html">Back to Home</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/photo-albums.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+      // ── Helpers ──────────────────────────────────────────────────────────
+      function escHtml(str) {
+        return String(str ?? '')
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+          .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+      function formatDate(iso) {
+        if (!iso) return '';
+        const [y, m, d] = iso.split('-');
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        if (!d) return y || '';
+        return `${parseInt(d)} ${months[parseInt(m)-1]} ${y}`;
+      }
+
+      let allAlbums = [];
+      let currentCategory = 'all';
+      let currentSearch = '';
+      // Titles of the tiles the visitor has opened, kept across re-renders.
+      const openAlbums = new Set();
+
+      // ── Build filter pills from unique categories in data ─────────────────
+      function buildPills(albums) {
+        const pillsContainer = document.getElementById('albumFilterPills');
+        const seen  = new Set();
+        const order = [];
+        albums.forEach(a => {
+          if (!seen.has(a.category)) { seen.add(a.category); order.push({ key: a.category, label: a.categoryLabel }); }
+        });
+        pillsContainer.querySelectorAll('[data-category]:not([data-category="all"])').forEach(el => el.remove());
+        order.forEach(({ key, label }) => {
+          const btn = document.createElement('button');
+          btn.className      = 'sermon-pill';
+          btn.dataset.category = key;
+          btn.type           = 'button';
+          btn.textContent    = label;
+          pillsContainer.appendChild(btn);
+        });
+      }
+
+      function setActivePill(category) {
+        document.querySelectorAll('#albumFilterPills .sermon-pill').forEach(pill => {
+          pill.classList.toggle('is-active', pill.dataset.category === category);
+        });
+      }
+
+      function getFiltered() {
+        let result = currentCategory === 'all'
+          ? allAlbums
+          : allAlbums.filter(a => a.category === currentCategory);
+
+        if (currentSearch.trim()) {
+          const q = currentSearch.trim().toLowerCase();
+          result = result.filter(a =>
+            a.title.toLowerCase().includes(q) || a.description.toLowerCase().includes(q)
+          );
+        }
+        return result;
+      }
+
+      // ── Render album cards ────────────────────────────────────────────────
+      function renderAlbums() {
+        buildPills(allAlbums);
+        setActivePill(currentCategory);
+
+        const grid = document.getElementById('albumGrid');
+        const filtered = getFiltered();
+
+        if (!filtered.length) {
+          grid.innerHTML = '<p style="color:var(--muted);padding:1rem 0">No albums found.</p>';
+          return;
+        }
+
+        grid.innerHTML = filtered.map((a, i) => {
+          const hasLink = isAlbumLinkReady(a.albumUrl);
+          const panelId = `album-panel-${i}`;
+
+          const action = hasLink
+            ? `<a class="album-action" href="${escHtml(a.albumUrl)}" target="_blank" rel="noopener">
+                 Open album in Google Drive →
+               </a>`
+            : `<span class="album-action is-pending">Album link coming soon</span>`;
+
+          const isOpen = openAlbums.has(a.title);
+
+          return `
+            <article class="album-tile${hasLink ? '' : ' is-pending'}${isOpen ? ' is-open' : ''}">
+              <h3 class="album-heading">
+              <button
+                class="album-tile-head"
+                type="button"
+                aria-expanded="${isOpen}"
+                aria-controls="${panelId}"
+              >
+                <span class="album-head-text">
+                  <span class="album-tag">${escHtml(a.categoryLabel)}</span>
+                  <span class="album-title">${escHtml(a.title)}</span>
+                  <span class="album-meta">
+                    <span class="album-date">${formatDate(a.date)}</span>
+                    <span class="album-meta-sep" aria-hidden="true">·</span>
+                    <span class="album-access">Members only</span>
+                  </span>
+                </span>
+                <span class="album-chevron" aria-hidden="true"></span>
+              </button>
+              </h3>
+
+              <div class="album-reveal" id="${panelId}">
+                <div class="album-reveal-inner">
+                  <p class="album-description">${escHtml(a.description)}</p>
+                  ${action}
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+      }
+
+      async function initPhotoArchivePage() {
+        allAlbums = await getPhotoAlbums();
+        // Newest events first
+        allAlbums.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        renderAlbums();
+      }
+
+      // ── Click a tile to expand / collapse its details ─────────────────────
+      document.getElementById('albumGrid').addEventListener('click', event => {
+        const head = event.target.closest('.album-tile-head');
+        if (!head) return;
+
+        const tile = head.closest('.album-tile');
+        const title = head.querySelector('.album-title').textContent;
+        const isOpen = tile.classList.toggle('is-open');
+
+        head.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) openAlbums.add(title);
+        else openAlbums.delete(title);
+      });
+
+      document.getElementById('albumFilterPills').addEventListener('click', event => {
+        const pill = event.target.closest('.sermon-pill');
+        if (!pill) return;
+        currentCategory = pill.dataset.category;
+        renderAlbums();
+      });
+
+      document.getElementById('albumSearch').addEventListener('input', event => {
+        currentSearch = event.target.value;
+        renderAlbums();
+      });
+
+      // ── Search toggle ─────────────────────────────────────────────────────
+      (function () {
+        const wrap   = document.getElementById('albumSearchWrap');
+        const toggle = document.getElementById('albumSearchToggle');
+        const input  = document.getElementById('albumSearch');
+
+        function openSearch() {
+          wrap.classList.add('is-open');
+          toggle.setAttribute('aria-expanded', 'true');
+          input.removeAttribute('tabindex');
+          setTimeout(() => input.focus(), 50);
+        }
+
+        function closeSearch() {
+          wrap.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          input.setAttribute('tabindex', '-1');
+          input.value = '';
+          currentSearch = '';
+          renderAlbums();
+        }
+
+        toggle.addEventListener('click', () => {
+          wrap.classList.contains('is-open') ? closeSearch() : openSearch();
+        });
+
+        input.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSearch(); toggle.focus(); } });
+
+        document.addEventListener('click', e => {
+          if (wrap.classList.contains('is-open') && !wrap.contains(e.target)) closeSearch();
+        });
+      })();
+
+      // ── Initial render ────────────────────────────────────────────────────
+      initPhotoArchivePage();
+    </script>
+  </body>
+</html>
