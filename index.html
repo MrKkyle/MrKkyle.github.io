@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/main.css" />
@@ -57,7 +57,21 @@
             </div>
           </div>
           <a href="pages/map-directions.html">Map & Directions</a>
-          <a href="pages/bible-messages.html">Bible Messages</a>
+          <div class="nav-dropdown" id="archiveDropdown">
+            <button
+              class="nav-dropdown-toggle"
+              id="archiveDropdownToggle"
+              type="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              Our Archive
+            </button>
+            <div class="nav-dropdown-menu" aria-label="Our Archive submenu">
+              <a href="pages/bible-messages.html">Bible Messages</a>
+              <a href="pages/photo-archive.html">Photo Archive</a>
+            </div>
+          </div>
           <a href="pages/programmes.html">Programmes</a>
           <a href="pages/contact.html">Contact Us</a>
         </nav>
@@ -275,10 +289,14 @@
           <nav class="footer-nav" aria-label="Footer navigation">
             <a href="pages/about-introduction.html">About Us</a>
             <a href="pages/bible-messages.html">Bible Messages</a>
+            <a href="pages/photo-archive.html">Photo Archive</a>
             <a href="pages/programmes.html">Programmes</a>
             <a href="pages/contact.html">Contact Us</a>
             <a href="pages/map-directions.html">Map &amp; Directions</a>
           </nav>
+        </div>
+        <div class="footer-wrap">
+          <p>&copy; <span id="year"></span> Montrose Park Bible Church</p>
         </div>
       </div>
     </footer>
