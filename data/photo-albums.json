@@ -1,11 +1,51 @@
 {
     "albums": [
         {
+            "title": "New Members Inauguration Service 2025",
+            "category": "celebrations",
+            "categoryLabel": "Celebrations",
+            "date": "2025-07-27",
+            "description": "Photos from our Members Inauguration service in 2025. Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
+            "title": "New Members Inauguration Service 2025",
+            "category": "celebrations",
+            "categoryLabel": "Celebrations",
+            "date": "2025-07-27",
+            "description": "Photos from our Members Inauguration service in 2025. Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
+            "title": "Christmas Pictures 2025",
+            "category": "celebrations",
+            "categoryLabel": "Celebrations",
+            "date": "2025-12-25",
+            "description": "Photos from our Christmas Service for 2025. Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
+            "title": "Christmas Pictures 2024",
+            "category": "celebrations",
+            "categoryLabel": "Celebrations",
+            "date": "2024-12-25",
+            "description": "Photos from  our Christmas Service for 2024.  Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
+            "title": "Christo's Farewell",
+            "category": "celebrations",
+            "categoryLabel": "Celebrations",
+            "date": "2026-10-29",
+            "description": "Photos from the Sunday evening celebration of our lead Pastor Christo April. Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
             "title": "Mother's Day 2026",
             "category": "celebrations",
             "categoryLabel": "Celebrations",
-            "date": "2026-05-10",
-            "description": "Photos from our Mother's Day service and the tea that followed, honouring the mothers of our church family. Viewing is open to church members only.",
+            "date": "2026-05-11",
+            "description": "Photos from our Mother's Day 2026 service and the tea that followed, honouring the mothers of our church family. Viewing is open to church members only.",
             "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
         },
         {
@@ -17,19 +57,43 @@
             "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
         },
         {
+            "title": "Father's Day 2026",
+            "category": "celebrations",
+            "categoryLabel": "Celebrations",
+            "date": "2026-06-21",
+            "description": "A look back at our Father's Day celebration in 2026, with the men of the church and their families. Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
             "title": "Father's Day 2025",
             "category": "celebrations",
             "categoryLabel": "Celebrations",
-            "date": "2025-05-11",
+            "date": "2025-06-15",
             "description": "A look back at our Father's Day celebration in 2025, with the men of the church and their families. Viewing is open to church members only.",
             "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
         },
         {
-            "title": "Youth Breaking-up",
+            "title": "Youth Breaking-up 2025",
             "category": "youth",
             "categoryLabel": "Youth",
             "date": "2025-12-06",
-            "description": "The youth end-of-year breaking-up function, closing off a year of fellowship and growth. Viewing is open to church members only.",
+            "description": "The youth end-of-year breaking-up function for 2025, closing off a year of fellowship and growth. Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
+            "title": "Youth Breaking-up 2024",
+            "category": "youth",
+            "categoryLabel": "Youth",
+            "date": "2024-12-15",
+            "description": "The youth end-of-year breaking-up function for 2024, closing off a year of fellowship and growth. Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
+            "title": "Trip around the World Evening ",
+            "category": "fellowship",
+            "categoryLabel": "Fellowship",
+            "date": "2024-11-30",
+            "description": "An evening fun and tasty treats. 4 teams create a variety of foods of their assigned country. Viewing is open to church members only.",
             "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
         },
         {
@@ -49,10 +113,26 @@
             "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
         },
         {
+            "title": "Church Camp 2023",
+            "category": "camps",
+            "categoryLabel": "Camps & Outings",
+            "date": "2025-07-04",
+            "description": "Pictures from our annual church camp in 2023. Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
+            "title": "Church Picnic 2025",
+            "category": "camps",
+            "categoryLabel": "Camps & Outings",
+            "date": "2025-12-14",
+            "description": "Pictures from our Church Picnic. Viewing is open to church members only.",
+            "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
+        },
+        {
             "title": "Youth Hike",
             "category": "youth",
             "categoryLabel": "Youth",
-            "date": "2025-06-14",
+            "date": "2025-12-14",
             "description": "Our young people on the trail - a morning hike followed by devotions at the summit. Viewing is open to church members only.",
             "albumUrl": "https://drive.google.com/drive/folders/REPLACE-WITH-FOLDER-ID"
         }
